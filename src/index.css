@@ -134,22 +134,23 @@ All colors MUST be HSL.
 @layer components {
   /* Construction-specific component styles */
   .construction-hero {
-    @apply bg-gradient-to-br from-primary to-secondary;
+    background: var(--gradient-primary);
   }
   
   .luxury-card {
-    @apply bg-card rounded-xl shadow-luxury border border-border/20;
+    @apply bg-card rounded-xl border border-border/20;
+    box-shadow: var(--shadow-luxury);
   }
   
   .construction-button {
     @apply bg-gradient-to-r from-primary to-primary-light text-primary-foreground 
-           hover:from-primary-dark hover:to-primary shadow-construction 
-           transition-all duration-300 transform hover:scale-105;
+           hover:from-primary-dark hover:to-primary transition-all duration-300 transform hover:scale-105;
+    box-shadow: var(--shadow-construction);
   }
   
   .floating-contact {
-    @apply fixed bottom-6 right-6 z-50 transition-transform duration-300 
-           hover:scale-110 shadow-float;
+    @apply fixed bottom-6 right-6 z-50 transition-transform duration-300 hover:scale-110;
+    box-shadow: var(--shadow-float);
   }
 
   /* Animation classes */
