@@ -1,50 +1,51 @@
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { CheckCircle, Clock, Award, Users, Target, Shield } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const WhyUsSection = () => {
   const differentiators = [
     {
       icon: Clock,
       title: 'On-Time Delivery',
-      description: 'Consistent track record of delivering projects on schedule with zero delays.',
+      description: '100% on-schedule project completion.',
       stat: '100%',
       statLabel: 'On-Time Projects',
     },
     {
       icon: Award,
       title: 'Quality Excellence',
-      description: 'Premium quality standards with rigorous quality control at every phase.',
+      description: 'Rigorous quality control at every phase.',
       stat: '150+',
-      statLabel: 'Quality Certifications',
+      statLabel: 'Certifications',
     },
     {
       icon: Users,
       title: 'Expert Team',
-      description: 'Highly skilled professionals with decades of construction experience.',
+      description: '50+ skilled professionals.',
       stat: '50+',
-      statLabel: 'Expert Professionals',
+      statLabel: 'Experts',
     },
     {
       icon: Target,
       title: 'Budget Precision',
-      description: 'Transparent pricing and cost control ensuring projects stay within budget.',
+      description: '95% budget accuracy.',
       stat: '95%',
-      statLabel: 'Budget Accuracy',
+      statLabel: 'On Budget',
     },
     {
       icon: Shield,
       title: 'Safety First',
-      description: 'Comprehensive safety protocols ensuring zero accidents on our sites.',
+      description: 'Zero accident sites.',
       stat: '0',
-      statLabel: 'Safety Incidents',
+      statLabel: 'Incidents',
     },
     {
       icon: CheckCircle,
       title: 'Partner Network',
-      description: 'Strong relationships with trusted subcontractors and suppliers.',
+      description: 'Trusted subcontractors network.',
       stat: '25+',
-      statLabel: 'Trusted Partners',
+      statLabel: 'Partners',
     },
   ];
 
@@ -81,7 +82,7 @@ const WhyUsSection = () => {
           </h2>
           
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed fade-in-up">
-            We don't just build structures; we build lasting partnerships. Here's what sets us apart in the competitive construction landscape.
+            Building trust through excellence. <Link to="/about" className="text-primary hover:underline">Our story →</Link>
           </p>
         </div>
 

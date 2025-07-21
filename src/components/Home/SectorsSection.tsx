@@ -9,7 +9,7 @@ const SectorsSection = () => {
     {
       icon: GraduationCap,
       title: 'Educational',
-      description: 'Schools, colleges, and educational institutions with specialized learning environments.',
+      description: 'Specialized learning environments for schools and colleges.',
       projects: '25+ Projects',
       color: 'from-blue-500 to-blue-600',
       bgColor: 'bg-blue-50',
@@ -17,7 +17,7 @@ const SectorsSection = () => {
     {
       icon: Heart,
       title: 'Healthcare',
-      description: 'Hospitals, clinics, and medical facilities meeting stringent healthcare standards.',
+      description: 'Modern medical facilities meeting healthcare standards.',
       projects: '15+ Projects',
       color: 'from-green-500 to-green-600',
       bgColor: 'bg-green-50',
@@ -25,7 +25,7 @@ const SectorsSection = () => {
     {
       icon: Building,
       title: 'Commercial',
-      description: 'Office complexes, retail spaces, and commercial buildings for modern businesses.',
+      description: 'Office and retail spaces for modern businesses.',
       projects: '40+ Projects',
       color: 'from-primary to-primary-light',
       bgColor: 'bg-primary/5',
@@ -33,7 +33,7 @@ const SectorsSection = () => {
     {
       icon: Factory,
       title: 'Industrial',
-      description: 'Manufacturing facilities, warehouses, and industrial complexes.',
+      description: 'Manufacturing and warehouse facilities.',
       projects: '20+ Projects',
       color: 'from-orange-500 to-orange-600',
       bgColor: 'bg-orange-50',
@@ -41,7 +41,7 @@ const SectorsSection = () => {
     {
       icon: Home,
       title: 'Residential',
-      description: 'High-rise apartments, luxury residences, and residential complexes.',
+      description: 'Luxury homes and apartment complexes.',
       projects: '60+ Projects',
       color: 'from-secondary to-secondary-light',
       bgColor: 'bg-secondary/5',
@@ -66,7 +66,7 @@ const SectorsSection = () => {
           </h2>
           
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed fade-in-up">
-            Our deep understanding of sector-specific requirements enables us to deliver tailored solutions that meet the unique demands of each industry.
+            Tailored solutions for every industry. <Link to="/sectors" className="text-secondary hover:underline">Explore sectors →</Link>
           </p>
         </div>
 

@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Building2, Phone, Mail, MapPin, Clock, Download } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import BrochureGallery from '../BrochureGallery';
 
 const Footer = () => {
+  const [isBrochureOpen, setIsBrochureOpen] = useState(false);
   const currentYear = new Date().getFullYear();
 
   const quickLinks = [
@@ -28,10 +30,14 @@ const Footer = () => {
           {/* Company Info */}
           <div className="space-y-6">
             <div className="flex items-center space-x-3">
-              <div className="w-12 h-12 bg-secondary rounded-xl flex items-center justify-center">
-                <Building2 className="w-7 h-7 text-secondary-foreground" />
+              <div className="h-16 w-auto">
+                <img 
+                  src="/Pictures/logo.png" 
+                  alt="Henil Construction Logo" 
+                  className="h-full w-auto object-contain"
+                />
               </div>
-              <div>
+              <div className="hidden sm:block">
                 <h3 className="text-2xl font-bold">Henil Construction</h3>
                 <p className="text-primary-foreground/80 text-sm">Premium Construction Partners</p>
               </div>
@@ -45,12 +51,10 @@ const Footer = () => {
                 variant="secondary" 
                 size="sm"
                 className="bg-secondary hover:bg-secondary-light"
-                asChild
+                onClick={() => setIsBrochureOpen(true)}
               >
-                <Link to="/brochure-download" className="flex items-center space-x-2">
-                  <Download className="w-4 h-4" />
-                  <span>Download Brochure</span>
-                </Link>
+                <Download className="w-4 h-4 mr-2" />
+                <span>View Brochure</span>
               </Button>
             </div>
           </div>
@@ -170,6 +174,10 @@ const Footer = () => {
           </div>
         </div>
       </div>
+      <BrochureGallery 
+        isOpen={isBrochureOpen} 
+        onClose={() => setIsBrochureOpen(false)} 
+      />
     </footer>
   );
 };

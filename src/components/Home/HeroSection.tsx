@@ -107,7 +107,7 @@ const HeroSection = () => {
               <Button 
                 variant="outline" 
                 size="lg" 
-                className="border-2 border-white text-white hover:bg-white hover:text-primary text-lg px-8 py-6"
+                className="border-2 border-secondary text-secondary hover:bg-secondary/10 hover:border-secondary/80 text-lg px-8 py-6 transition-colors"
                 asChild
               >
                 <Link to="/projects" className="flex items-center space-x-2">

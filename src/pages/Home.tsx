@@ -2,8 +2,6 @@ import React, { useEffect, useRef } from 'react';
 import Layout from '@/components/Layout/Layout';
 import HeroSection from '@/components/Home/HeroSection';
 import ServicesSection from '@/components/Home/ServicesSection';
-import SectorsSection from '@/components/Home/SectorsSection';
-import WhyUsSection from '@/components/Home/WhyUsSection';
 import RecentProjectsSection from '@/components/Home/RecentProjectsSection';
 import CTASection from '@/components/Home/CTASection';
 
@@ -41,8 +39,6 @@ const Home = () => {
     <Layout>
       <HeroSection />
       <ServicesSection />
-      <SectorsSection />
-      <WhyUsSection />
       <RecentProjectsSection />
       <CTASection />
     </Layout>

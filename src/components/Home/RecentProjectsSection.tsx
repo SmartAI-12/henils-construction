@@ -148,17 +148,6 @@ const RecentProjectsSection = () => {
                       <span>{project.type} • {project.completionDate}</span>
                     </div>
                   </div>
-
-                  {/* View Project Link */}
-                  <div className="pt-4">
-                    <Link 
-                      to={`/projects/${project.id}`}
-                      className="inline-flex items-center space-x-2 text-primary hover:text-primary-dark transition-colors group"
-                    >
-                      <span className="font-medium">View Project Details</span>
-                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </Link>
-                  </div>
                 </div>
               </CardContent>
             </Card>

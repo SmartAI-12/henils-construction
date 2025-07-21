@@ -1,10 +1,22 @@
-import React, { useState } from 'react';
+import React, { useRef } from 'react';
 import { Phone, MessageCircle, Download, Plus, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import BrochureGallery from '../BrochureGallery';
+import { Dialog, DialogTrigger } from '@/components/ui/dialog';
 
 const FloatingContact = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = React.useState(false);
+  const [isBrochureOpen, setIsBrochureOpen] = React.useState(false);
+  const dialogTriggerRef = useRef<HTMLButtonElement>(null);
+  
+  const handleBrochureClick = () => {
+    setIsOpen(false);
+    // Use a small timeout to ensure the dialog trigger is clicked after the state updates
+    setTimeout(() => {
+      dialogTriggerRef.current?.click();
+    }, 0);
+  };
 
   const contactActions = [
     {
@@ -22,9 +34,8 @@ const FloatingContact = () => {
     {
       icon: Download,
       label: 'Download Brochure',
-      href: '/brochure-download',
+      onClick: handleBrochureClick,
       className: 'bg-secondary hover:bg-secondary-light text-secondary-foreground',
-      isInternal: true,
     },
   ];
 
@@ -46,15 +57,20 @@ const FloatingContact = () => {
               'animate-slide-in-right'
             )}
             style={{ animationDelay: `${index * 100}ms` }}
-            asChild={action.isInternal}
+            onClick={action.onClick}
+            asChild={!action.onClick}
           >
-            {action.isInternal ? (
-              <a href={action.href} title={action.label}>
-                <action.icon className="w-6 h-6" />
+            {action.onClick ? (
+              <button className="flex items-center justify-center w-full h-full">
+                <action.icon className="h-6 w-6" />
+              </button>
+            ) : action.href?.startsWith('http') ? (
+              <a href={action.href} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-full h-full">
+                <action.icon className="h-6 w-6" />
               </a>
             ) : (
-              <a href={action.href} target="_blank" rel="noopener noreferrer" title={action.label}>
-                <action.icon className="w-6 h-6" />
+              <a href={action.href} className="flex items-center justify-center w-full h-full">
+                <action.icon className="h-6 w-6" />
               </a>
             )}
           </Button>
@@ -80,6 +96,14 @@ const FloatingContact = () => {
 
       {/* Floating Animation */}
       <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary/20 to-secondary/20 animate-float -z-10" />
+      
+      {/* Brochure Gallery */}
+      <Dialog>
+        <DialogTrigger asChild>
+          <button ref={dialogTriggerRef} className="hidden" />
+        </DialogTrigger>
+        <BrochureGallery />
+      </Dialog>
     </div>
   );
 };

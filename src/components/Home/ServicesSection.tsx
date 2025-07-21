@@ -9,29 +9,29 @@ const ServicesSection = () => {
     {
       icon: Building2,
       title: 'General Contracting',
-      description: 'Comprehensive construction services leveraging extensive resources and skilled labor to surpass expectations.',
-      features: ['Project Planning', 'Resource Management', 'Quality Control', 'Safety Compliance'],
+      description: 'Full-service construction with expert project management and quality assurance.',
+      features: ['Planning', 'Execution', 'Quality', 'Safety'],
       color: 'from-primary to-primary-light',
     },
     {
       icon: Palette,
       title: 'Design & Consultancy',
-      description: 'Innovative, sustainable designs maximizing natural energy and minimizing waste for visionary buildings.',
-      features: ['Architectural Design', 'Structural Engineering', 'MEP Planning', 'Sustainability Solutions'],
+      description: 'Innovative and sustainable building designs tailored to your needs.',
+      features: ['Architecture', 'Engineering', 'MEP', 'Sustainability'],
       color: 'from-secondary to-secondary-light',
     },
     {
       icon: Wrench,
       title: 'Design & Build',
-      description: 'Integrated approach fostering collaboration and efficiency for faster delivery and enhanced involvement.',
-      features: ['Single Point Contact', 'Faster Delivery', 'Cost Optimization', 'Quality Assurance'],
+      description: 'Seamless integration of design and construction for efficiency.',
+      features: ['Single Contact', 'Fast Track', 'Cost Control', 'Quality'],
       color: 'from-construction-gold to-construction-steel',
     },
     {
       icon: ClipboardCheck,
       title: 'Project Management',
-      description: 'End-to-end project oversight ensuring timelines, budgets, and quality standards are consistently met.',
-      features: ['Timeline Management', 'Budget Control', 'Progress Monitoring', 'Stakeholder Coordination'],
+      description: 'Comprehensive oversight for on-time, on-budget project delivery.',
+      features: ['Scheduling', 'Budgeting', 'Monitoring', 'Coordination'],
       color: 'from-primary-light to-secondary',
     },
   ];
@@ -54,7 +54,7 @@ const ServicesSection = () => {
           </h2>
           
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed fade-in-up">
-            From concept to completion, we provide end-to-end construction services tailored to meet the unique needs of builders and developers across various sectors.
+            Comprehensive construction solutions for all your building needs. <Link to="/services" className="text-primary hover:underline">Learn more →</Link>
           </p>
         </div>
 
