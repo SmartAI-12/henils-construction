@@ -59,16 +59,16 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="space-y-6">
-            <div className="flex items-center space-x-3">
-              <div className="h-16 w-auto">
+            <div className="flex items-start space-x-3">
+              <div className="h-12 w-auto flex-shrink-0 mt-1">
                 <img 
                   src="/Pictures/logo.png" 
                   alt="Henil Construction Logo" 
                   className="h-full w-auto object-contain"
                 />
               </div>
-              <div className="hidden sm:block">
-                <h3 className="text-2xl font-bold">Henil Construction</h3>
+              <div className="flex flex-col justify-center">
+                <h3 className="text-2xl font-bold leading-tight">Henil Construction</h3>
                 <p className="text-primary-foreground/80 text-sm">Premium Construction Partners</p>
               </div>
             </div>

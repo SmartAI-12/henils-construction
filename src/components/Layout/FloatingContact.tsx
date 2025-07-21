@@ -122,8 +122,6 @@ const FloatingContact = () => {
         )}
       </Button>
 
-      {/* Floating Animation */}
-      <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary/20 to-secondary/20 animate-float -z-10" />
     </div>
   );
 };

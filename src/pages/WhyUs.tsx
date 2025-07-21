@@ -240,8 +240,8 @@ const WhyUs = () => {
               </Button>
               <Button 
                 size="lg" 
-                variant="outline"
-                className="border-2 border-white text-white hover:bg-white/10"
+                variant="secondary"
+                className="bg-white/10 hover:bg-white/20 text-white border-2 border-white/30"
                 asChild
               >
                 <Link to="/projects">View Our Work</Link>
