@@ -8,35 +8,62 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
+    /* Premium Construction Color Palette */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 220 26% 14%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 220 26% 14%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 220 26% 14%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Deep Blue Primary */
+    --primary: 220 100% 20%;
+    --primary-foreground: 0 0% 98%;
+    --primary-light: 220 100% 35%;
+    --primary-dark: 220 100% 15%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Maroon Secondary */
+    --secondary: 0 65% 35%;
+    --secondary-foreground: 0 0% 98%;
+    --secondary-light: 0 65% 50%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Luxury Grays */
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 8.9% 46.1%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 220 14% 96%;
+    --accent-foreground: 220 26% 14%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 220 100% 20%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
+
+    /* Construction-specific colors */
+    --construction-gold: 45 90% 60%;
+    --construction-steel: 210 11% 71%;
+    --construction-concrete: 60 2% 85%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-light)) 100%);
+    --gradient-secondary: linear-gradient(135deg, hsl(var(--secondary)) 0%, hsl(var(--secondary-light)) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 100%);
+    --gradient-overlay: linear-gradient(180deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 100%);
+
+    /* Shadows */
+    --shadow-luxury: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    --shadow-construction: 0 10px 30px -10px hsl(var(--primary) / 0.3);
+    --shadow-float: 0 20px 40px -10px rgba(0, 0, 0, 0.15);
+
+    /* Animations */
+    --transition-luxury: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +127,70 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+  }
+}
+
+@layer components {
+  /* Construction-specific component styles */
+  .construction-hero {
+    @apply bg-gradient-to-br from-primary to-secondary;
+  }
+  
+  .luxury-card {
+    @apply bg-card rounded-xl shadow-luxury border border-border/20;
+  }
+  
+  .construction-button {
+    @apply bg-gradient-to-r from-primary to-primary-light text-primary-foreground 
+           hover:from-primary-dark hover:to-primary shadow-construction 
+           transition-all duration-300 transform hover:scale-105;
+  }
+  
+  .floating-contact {
+    @apply fixed bottom-6 right-6 z-50 transition-transform duration-300 
+           hover:scale-110 shadow-float;
+  }
+
+  /* Animation classes */
+  .fade-in-up {
+    @apply opacity-0 translate-y-10 transition-all duration-700 ease-out;
+  }
+  
+  .fade-in-up.animate {
+    @apply opacity-100 translate-y-0;
+  }
+  
+  .slide-in-left {
+    @apply opacity-0 -translate-x-10 transition-all duration-700 ease-out;
+  }
+  
+  .slide-in-left.animate {
+    @apply opacity-100 translate-x-0;
+  }
+  
+  .slide-in-right {
+    @apply opacity-0 translate-x-10 transition-all duration-700 ease-out;
+  }
+  
+  .slide-in-right.animate {
+    @apply opacity-100 translate-x-0;
+  }
+  
+  .scale-in {
+    @apply opacity-0 scale-95 transition-all duration-700 ease-out;
+  }
+  
+  .scale-in.animate {
+    @apply opacity-100 scale-100;
+  }
+
+  /* Construction imagery overlay */
+  .construction-overlay {
+    @apply relative before:absolute before:inset-0 before:bg-gradient-overlay before:z-10;
+  }
+  
+  .construction-overlay > * {
+    @apply relative z-20;
   }
 }
