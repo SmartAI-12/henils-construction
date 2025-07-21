@@ -133,16 +133,14 @@ const CTASection = () => {
                     </p>
                   </div>
                   
-                  <Button 
-                    variant="secondary" 
-                    className="w-full bg-white text-secondary hover:bg-white/90"
-                    asChild
+                  <a
+                    href="/brochures/broucher.pdf.pdf"
+                    download="Henils-Construction-Brochure.pdf"
+                    className="flex items-center justify-center space-x-2 w-full bg-white text-secondary hover:bg-white/90 rounded-md text-sm font-medium transition-colors h-10 px-4 py-2"
                   >
-                    <Link to="/brochure-download" className="flex items-center justify-center space-x-2">
-                      <Download className="w-4 h-4" />
-                      <span>Download Brochure</span>
-                    </Link>
-                  </Button>
+                    <Download className="w-4 h-4" />
+                    <span>Download Brochure</span>
+                  </a>
                 </div>
               </CardContent>
             </Card>

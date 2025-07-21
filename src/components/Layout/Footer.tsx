@@ -1,12 +1,18 @@
-import React, { useState } from 'react';
+import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Building2, Phone, Mail, MapPin, Clock, Download } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import BrochureGallery from '../BrochureGallery';
 
 const Footer = () => {
-  const [isBrochureOpen, setIsBrochureOpen] = useState(false);
+  const downloadRef = useRef<HTMLAnchorElement>(null);
   const currentYear = new Date().getFullYear();
+
+  const handleBrochureDownload = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (downloadRef.current) {
+      downloadRef.current.click();
+    }
+  };
 
   const quickLinks = [
     { name: 'Services', path: '/services' },
@@ -47,15 +53,26 @@ const Footer = () => {
               Delivering excellence, on time, every time.
             </p>
             <div className="flex space-x-4">
-              <Button 
-                variant="secondary" 
-                size="sm"
-                className="bg-secondary hover:bg-secondary-light"
-                onClick={() => setIsBrochureOpen(true)}
-              >
-                <Download className="w-4 h-4 mr-2" />
-                <span>View Brochure</span>
-              </Button>
+              <div className="space-y-4">
+                <Button 
+                  variant="outline" 
+                  className="bg-primary-foreground/10 hover:bg-primary-foreground/20 text-primary-foreground border-primary-foreground/20 flex items-center space-x-2 w-full"
+                  onClick={handleBrochureDownload}
+                >
+                  <Download className="h-4 w-4" />
+                  <span>Download Brochure</span>
+                </Button>
+                {/* Hidden download link */}
+                <a
+                  ref={downloadRef}
+                  href="/brochures/broucher.pdf.pdf"
+                  download="Henils-Construction-Brochure.pdf"
+                  className="hidden"
+                  aria-hidden="true"
+                >
+                  Download Brochure
+                </a>
+              </div>
             </div>
           </div>
 
@@ -155,7 +172,7 @@ const Footer = () => {
         <div className="container mx-auto px-4 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-primary-foreground/80 text-sm">
-              © {currentYear} Henil Construction. All rights reserved.
+              {currentYear} Henil Construction. All rights reserved.
             </p>
             <div className="flex space-x-6 text-sm">
               <Link 
@@ -174,10 +191,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <BrochureGallery 
-        isOpen={isBrochureOpen} 
-        onClose={() => setIsBrochureOpen(false)} 
-      />
     </footer>
   );
 };
