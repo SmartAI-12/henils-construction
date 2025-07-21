@@ -144,26 +144,6 @@ const CTASection = () => {
                 </div>
               </CardContent>
             </Card>
-
-            {/* Trust Indicators */}
-            <div className="grid grid-cols-3 gap-4">
-              {[
-                { number: '5+', label: 'Years Experience' },
-                { number: '150+', label: 'Projects Delivered' },
-                { number: '100%', label: 'Client Satisfaction' },
-              ].map((item, index) => (
-                <Card key={index} className="luxury-card bg-white/10 backdrop-blur-lg border-white/20">
-                  <CardContent className="p-4 text-center">
-                    <div className="text-2xl font-bold text-white mb-1">
-                      {item.number}
-                    </div>
-                    <div className="text-white/80 text-xs">
-                      {item.label}
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
           </div>
         </div>
       </div>

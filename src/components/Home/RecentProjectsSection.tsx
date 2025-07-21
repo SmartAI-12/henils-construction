@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { ArrowRight, MapPin, Calendar, Layers } from 'lucide-react';
+import { ArrowRight, MapPin, Calendar, Layers, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const RecentProjectsSection = () => {
@@ -147,6 +147,17 @@ const RecentProjectsSection = () => {
                       <Calendar className="w-4 h-4 text-primary flex-shrink-0" />
                       <span>{project.type} • {project.completionDate}</span>
                     </div>
+                  </div>
+                  
+                  {/* Call Button */}
+                  <div className="pt-4 mt-4 border-t border-border">
+                    <a 
+                      href="tel:+919773391144" 
+                      className="w-full flex items-center justify-center space-x-2 bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-md transition-colors"
+                    >
+                      <Phone className="w-4 h-4" />
+                      <span>Call Now</span>
+                    </a>
                   </div>
                 </div>
               </CardContent>

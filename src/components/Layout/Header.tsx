@@ -1,11 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Menu, X, Phone, Building2 } from 'lucide-react';
+import { Menu, X, Phone, Building2, Loader2 } from 'lucide-react';
 import { cn } from '@/lib/utils';
+
+// Lazy load the QuoteForm component
+const QuoteForm = lazy(() => import('@/components/QuoteForm'));
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [showQuoteForm, setShowQuoteForm] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
 
@@ -89,9 +93,9 @@ const Header = () => {
             </Button>
             <Button 
               className="construction-button"
-              asChild
+              onClick={() => setShowQuoteForm(true)}
             >
-              <Link to="/contact">Get Quote</Link>
+              Get Quote
             </Button>
           </div>
 
@@ -138,15 +142,38 @@ const Header = () => {
                 </Button>
                 <Button 
                   className="w-full construction-button"
-                  asChild
+                  onClick={() => {
+                    setIsOpen(false);
+                    setShowQuoteForm(true);
+                  }}
                 >
-                  <Link to="/contact" onClick={() => setIsOpen(false)}>Get Quote</Link>
+                  Get Quote
                 </Button>
               </div>
             </nav>
           </div>
         )}
       </div>
+      
+      {/* Quote Form Modal */}
+      {showQuoteForm && (
+        <div className="fixed inset-0 bg-black/50 z-[60] flex items-center justify-center p-4">
+          <div className="w-full max-w-md">
+            <Suspense fallback={
+              <div className="bg-white p-6 rounded-xl">
+                <div className="flex justify-center items-center h-32">
+                  <Loader2 className="h-6 w-6 animate-spin text-primary" />
+                </div>
+              </div>
+            }>
+              <QuoteForm 
+                onClose={() => setShowQuoteForm(false)}
+                onSuccess={() => setShowQuoteForm(false)}
+              />
+            </Suspense>
+          </div>
+        </div>
+      )}
     </header>
   );
 };

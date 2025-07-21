@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { Phone, MessageCircle, Download, Plus, X } from 'lucide-react';
+import { Phone, MessageSquare, Download, Plus, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
@@ -30,7 +30,7 @@ const FloatingContact = () => {
       className: 'bg-green-500 hover:bg-green-600 text-white',
     },
     {
-      icon: MessageCircle,
+      icon: MessageSquare,
       label: 'WhatsApp',
       href: 'https://wa.me/919773391144?text=Hello! I would like to know more about your construction services.',
       className: 'bg-green-600 hover:bg-green-700 text-white',

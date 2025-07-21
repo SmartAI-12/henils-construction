@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { MapPin, Calendar, Layers } from 'lucide-react';
+import { MapPin, Calendar, Layers, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Layout from '@/components/Layout/Layout';
 
@@ -134,14 +134,23 @@ const Projects = () => {
                   </div>
                 </CardContent>
                 
-                <CardFooter className="px-6 pb-6 pt-0">
-                  <div className="w-full flex items-center justify-center">
-                    <Badge 
-                      variant={project.status === 'Completed' ? 'default' : 'outline'}
-                      className={`text-sm ${project.status === 'Work In Progress' ? 'border-amber-500 text-amber-500' : ''}`}
+                <CardFooter className="px-6 pb-6 pt-4">
+                  <div className="w-full flex flex-col space-y-3">
+                    <div className="w-full flex justify-center">
+                      <Badge 
+                        variant={project.status === 'Completed' ? 'default' : 'outline'}
+                        className={`text-sm ${project.status === 'Work In Progress' ? 'border-amber-500 text-amber-500' : ''}`}
+                      >
+                        {project.status}
+                      </Badge>
+                    </div>
+                    <a 
+                      href="tel:+919773391144" 
+                      className="w-full flex items-center justify-center space-x-2 bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-md transition-colors text-sm"
                     >
-                      {project.status}
-                    </Badge>
+                      <Phone className="w-3.5 h-3.5" />
+                      <span>Call Now</span>
+                    </a>
                   </div>
                 </CardFooter>
               </Card>

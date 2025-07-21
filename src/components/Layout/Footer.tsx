@@ -30,6 +30,30 @@ const Footer = () => {
 
   return (
     <footer className="bg-gray-900 text-white">
+      {/* Stats Section */}
+      <div className="bg-white py-12">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            <div className="p-6 bg-white rounded-lg shadow-md border border-gray-200">
+              <div className="text-3xl font-bold text-primary mb-2">5+</div>
+              <div className="text-sm text-muted-foreground font-medium">Years Experience</div>
+            </div>
+            <div className="p-6 bg-white rounded-lg shadow-md border border-gray-200">
+              <div className="text-3xl font-bold text-primary mb-2">150+</div>
+              <div className="text-sm text-muted-foreground font-medium">Projects Delivered</div>
+            </div>
+            <div className="p-6 bg-white rounded-lg shadow-md border border-gray-200">
+              <div className="text-3xl font-bold text-primary mb-2">100%</div>
+              <div className="text-sm text-muted-foreground font-medium">Client Satisfaction</div>
+            </div>
+            <div className="p-6 bg-white rounded-lg shadow-md border border-gray-200">
+              <div className="text-3xl font-bold text-primary mb-2">0</div>
+              <div className="text-sm text-muted-foreground font-medium">Incidents</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Main Footer Content */}
       <div className="container mx-auto px-4 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -166,6 +190,8 @@ const Footer = () => {
           </div>
         </div>
       </div>
+
+
 
       {/* Bottom Bar */}
       <div className="border-t border-primary-foreground/20">
