@@ -71,7 +71,7 @@ const FloatingContact = () => {
           <div 
             key={action.label}
             className={cn(
-              'w-14 h-14 rounded-full shadow-luxury transition-all duration-300 transform hover:scale-110 overflow-hidden',
+              'w-14 h-14 rounded-full transition-all duration-300 transform hover:scale-110 overflow-hidden',
               action.className,
               'animate-slide-in-right'
             )}
@@ -109,7 +109,7 @@ const FloatingContact = () => {
       <Button
         onClick={() => setIsOpen(!isOpen)}
         className={cn(
-          'w-16 h-16 rounded-full shadow-luxury transition-all duration-300 transform hover:scale-110',
+          'w-16 h-16 rounded-full transition-all duration-300 transform hover:scale-110',
           'bg-gradient-to-r from-primary to-secondary text-primary-foreground',
           'animate-pulse-glow',
           isOpen && 'rotate-45'
