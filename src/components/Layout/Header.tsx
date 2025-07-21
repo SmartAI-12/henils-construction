@@ -157,8 +157,8 @@ const Header = () => {
       
       {/* Quote Form Modal */}
       {showQuoteForm && (
-        <div className="fixed inset-0 bg-black/50 z-[60] flex items-center justify-center p-4">
-          <div className="w-full max-w-md">
+        <div className="fixed inset-0 bg-black/50 z-[60] flex items-start justify-center pt-16 p-4">
+          <div className="w-full max-w-md mt-4">
             <Suspense fallback={
               <div className="bg-white p-6 rounded-xl">
                 <div className="flex justify-center items-center h-32">
