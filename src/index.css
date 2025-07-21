@@ -188,7 +188,15 @@ All colors MUST be HSL.
 
   /* Construction imagery overlay */
   .construction-overlay {
-    @apply relative before:absolute before:inset-0 before:bg-gradient-overlay before:z-10;
+    @apply relative;
+  }
+  
+  .construction-overlay::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gradient-overlay);
+    z-index: 10;
   }
   
   .construction-overlay > * {
