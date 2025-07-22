@@ -104,71 +104,39 @@ const ServicesSection = () => {
 
         <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Services</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Services</h2>
             <div className="w-20 h-1 bg-blue-600 mx-auto mb-6"></div>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Comprehensive construction solutions tailored to your needs
-            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
             {services.map((service, index) => (
               <div 
                 key={index}
-                className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 h-full flex flex-col"
+                className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
                 data-aos="fade-up"
                 data-aos-delay={index * 100}
               >
                 <div className={`h-2 ${service.color}`}></div>
-                <div className="p-6 flex-1 flex flex-col">
+                <div className="p-6">
                   <div className="flex items-center mb-4">
-                    <div className={`p-3 rounded-lg ${service.color.split(' ')[0]} bg-opacity-10 mr-4`}>
-                      <service.icon className={`w-6 h-6 ${service.color.split(' ')[0].replace('bg-', 'text-')}`} />
+                    <div className={`p-2 rounded-lg ${service.color} bg-opacity-10 mr-4`}>
+                      <service.icon className={`w-5 h-5 ${service.color.split(' ')[0].replace('bg-', 'text-')}`} />
                     </div>
-                    <h3 className="text-xl font-bold text-gray-900">
+                    <h3 className="text-xl font-semibold text-gray-900">
                       {service.title}
                     </h3>
                   </div>
                   
-                  <p className="text-gray-600 mb-6 leading-relaxed flex-grow">
+                  <p className="text-gray-600 mb-4">
                     {service.description}
                   </p>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                    <div>
-                      <h4 className="text-gray-800 font-medium mb-3 text-sm uppercase tracking-wider">Key Benefits</h4>
-                      <ul className="space-y-2">
-                        {service.features.slice(0, 4).map((feature, featureIndex) => (
-                          <li key={featureIndex} className="flex items-start">
-                            <div className={`w-1.5 h-1.5 rounded-full mt-2 ${service.color.split(' ')[0]}`}></div>
-                            <span className="text-gray-600 text-sm ml-2">{feature}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    
-                    <div>
-                      <h4 className="text-gray-800 font-medium mb-3 text-sm uppercase tracking-wider">What's Included</h4>
-                      <ul className="space-y-2">
-                        {service.features.slice(4).map((feature, featureIndex) => (
-                          <li key={featureIndex + 4} className="flex items-start">
-                            <div className={`w-1.5 h-1.5 rounded-full mt-2 ${service.color.split(' ')[0]}`}></div>
-                            <span className="text-gray-600 text-sm ml-2">{feature}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-
-                  <div className="mt-auto pt-4 border-t border-gray-100">
-                    <Link 
-                      to="/services" 
-                      className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium text-sm"
-                    >
-                      <span>Learn more</span>
-                      <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
-                    </Link>
-                  </div>
+                  <Link 
+                    to="/services" 
+                    className="text-blue-600 hover:text-blue-800 text-sm font-medium inline-flex items-center"
+                  >
+                    Learn more <ArrowRight className="w-4 h-4 ml-1" />
+                  </Link>
                 </div>
               </div>
             ))}
