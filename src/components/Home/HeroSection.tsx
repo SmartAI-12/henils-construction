@@ -7,10 +7,10 @@ const HeroSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const heroImages = [
-    '/lovable-uploads/a795cb59-6f22-4ff0-b489-16bed4b5b073.png',
-    '/lovable-uploads/4db61cf1-9210-4d03-a922-dcceeb908789.png',
-    '/lovable-uploads/cda145a3-4c32-4c46-b67e-9a5939e63d64.png',
-    '/lovable-uploads/ce440644-9cf1-4337-95d7-dfce5c00fd17.png',
+    '/lovable-uploads/image 1.png',
+    '/lovable-uploads/image 2.png',
+    '/lovable-uploads/image 3.png',
+    '/lovable-uploads/image 4.png',
   ];
 
   const heroStats = [
