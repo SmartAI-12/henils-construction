@@ -1,6 +1,6 @@
 import React from 'react';
 import Layout from '@/components/Layout/Layout';
-import { Card, CardContent } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Building2, Palette, Wrench, ClipboardCheck, CheckCircle, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -102,84 +102,80 @@ const Services = () => {
         </div>
       </section>
 
-      {/* Services Detail */}
-      <section className="py-20">
+      {/* Services Grid */}
+      <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="space-y-20">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {services.map((service, index) => (
-              <div key={index} className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? 'lg:grid-flow-dense' : ''}`}>
-                {/* Content */}
-                <div className={`space-y-6 ${index % 2 === 1 ? 'lg:col-start-2' : ''}`}>
-                  <div className="flex items-center space-x-4">
-                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-r from-primary to-secondary flex items-center justify-center">
-                      <service.icon className="w-8 h-8 text-white" />
-                    </div>
-                    <h2 className="text-3xl lg:text-4xl font-bold text-foreground">
-                      {service.title}
-                    </h2>
+              <Card key={index} className="h-full flex flex-col hover:shadow-lg transition-shadow duration-300">
+                <CardHeader className="pb-4">
+                  <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                    <service.icon className="w-7 h-7 text-primary" />
+                  </div>
+                  <CardTitle className="text-2xl font-bold text-foreground">
+                    {service.title}
+                  </CardTitle>
+                  <CardDescription className="text-base text-muted-foreground">
+                    {service.description}
+                  </CardDescription>
+                </CardHeader>
+                
+                <CardContent className="flex-grow space-y-6">
+                  <div className="space-y-3">
+                    <h4 className="font-semibold text-foreground">Key Features:</h4>
+                    <ul className="space-y-2">
+                      {service.features.map((feature, idx) => (
+                        <li key={idx} className="flex items-start">
+                          <CheckCircle className="w-5 h-5 text-primary mr-2 mt-0.5 flex-shrink-0" />
+                          <span className="text-muted-foreground text-sm">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                   
-                  <p className="text-lg text-muted-foreground leading-relaxed">
-                    {service.description}
-                  </p>
-
-                  {/* Benefits */}
-                  <div className="space-y-3">
-                    <h4 className="text-lg font-semibold text-foreground">Key Benefits:</h4>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  <div className="bg-primary/5 p-4 rounded-lg">
+                    <h4 className="font-semibold text-foreground mb-2">Benefits:</h4>
+                    <div className="flex flex-wrap gap-2">
                       {service.benefits.map((benefit, idx) => (
-                        <div key={idx} className="flex items-center space-x-2">
-                          <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
-                          <span className="text-muted-foreground text-sm">{benefit}</span>
-                        </div>
+                        <span 
+                          key={idx}
+                          className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary"
+                        >
+                          {benefit}
+                        </span>
                       ))}
                     </div>
                   </div>
-                </div>
-
-                {/* Features Card */}
-                <div className={`${index % 2 === 1 ? 'lg:col-start-1 lg:row-start-1' : ''}`}>
-                  <Card className="luxury-card">
-                    <CardContent className="p-8">
-                      <h4 className="text-xl font-semibold text-foreground mb-6">What's Included:</h4>
-                      <div className="space-y-4">
-                        {service.features.map((feature, idx) => (
-                          <div key={idx} className="flex items-start space-x-3">
-                            <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                            <span className="text-muted-foreground">{feature}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </CardContent>
-                  </Card>
-                </div>
-              </div>
+                </CardContent>
+                
+                <CardFooter className="pt-2">
+                  <Button variant="outline" className="w-full group" asChild>
+                    <Link to="/contact">
+                      Get Started
+                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    </Link>
+                  </Button>
+                </CardFooter>
+              </Card>
             ))}
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-muted/20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center space-y-8">
-            <h2 className="text-4xl font-bold text-foreground">
-              Ready to Start Your Project?
-            </h2>
-            <p className="text-lg text-muted-foreground">
-              Let's discuss how our comprehensive services can bring your development vision to life.
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
-              <Button size="lg" className="construction-button" asChild>
-                <Link to="/contact" className="flex items-center space-x-2">
-                  <span>Get Project Quote</span>
-                  <ArrowRight className="w-5 h-5" />
-                </Link>
-              </Button>
-              <Button size="lg" variant="outline" asChild>
-                <Link to="/projects">View Our Work</Link>
-              </Button>
-            </div>
+      <section className="py-16 bg-gradient-to-r from-primary to-secondary text-white">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl font-bold mb-6">Ready to Start Your Project?</h2>
+          <p className="text-xl mb-8 max-w-2xl mx-auto text-white/90">
+            Our team of experts is ready to bring your vision to life. Contact us today for a consultation.
+          </p>
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <Button size="lg" className="bg-white text-primary hover:bg-gray-100">
+              Get a Free Quote
+            </Button>
+            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+              Contact Us
+            </Button>
           </div>
         </div>
       </section>
