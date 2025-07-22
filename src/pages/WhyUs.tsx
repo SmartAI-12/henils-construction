@@ -172,6 +172,90 @@ const WhyUs = () => {
         </div>
       </section>
 
+      {/* Vision, Mission & Strategy Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">Our Vision & Mission</h2>
+            <p className="text-lg text-gray-600 mb-8">
+              Shree Enterprises not only aims to meet but exceed clients' expectations, fostering
+              trust and long-term relationships. Consistently delivering exceptional quality and
+              service establishes our reputation as a reliable and reputable provider in the
+              construction sector.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 mb-16">
+            <div className="bg-white p-8 rounded-lg shadow-md">
+              <div className="flex items-center mb-4">
+                <Target className="w-8 h-8 text-blue-600 mr-3" />
+                <h3 className="text-2xl font-semibold">Our Vision</h3>
+              </div>
+              <p className="text-gray-700 mb-6">
+                To form long-term relationships of value with our clients and
+                partners, using quality construction and engineering solutions
+                and employing the best resources and latest techniques.
+              </p>
+              <p className="text-gray-700">
+                Our approach is sensitive, innovative and bespoke, driven by challenging and constrictive
+                working environments. We are committed to achieving the optimum solutions across our
+                service delivery, considering logistical aspects to ensure customer satisfaction.
+              </p>
+            </div>
+
+            <div className="bg-white p-8 rounded-lg shadow-md">
+              <div className="flex items-center mb-4">
+                <Award className="w-8 h-8 text-blue-600 mr-3" />
+                <h3 className="text-2xl font-semibold">Our Mission</h3>
+              </div>
+              <p className="text-gray-700 mb-6">
+                Being the architect of responsive, fast, cost-effective, and creative
+                solutions for clients' benefits, with a commitment to delivering value
+                in every aspect of our services.
+              </p>
+              <div className="mt-6">
+                <h4 className="text-lg font-semibold mb-3 text-gray-800">Our Expertise</h4>
+                <p className="text-gray-700 mb-4">
+                  Shree Enterprises excels in refurbishment and new build projects, particularly in
+                  education, healthcare, and commercial sectors, showcasing expertise tailored to
+                  industry-specific requirements.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-white p-8 rounded-lg shadow-md max-w-4xl mx-auto">
+            <h3 className="text-2xl font-semibold text-center mb-8">Our Key Strategies</h3>
+            <div className="grid md:grid-cols-2 gap-8">
+              <div>
+                <h4 className="text-lg font-semibold mb-3 text-gray-800">Project Management</h4>
+                <p className="text-gray-700 mb-6">
+                  Our construction management evaluates project proposals, estimating timelines,
+                  cash flow, resource needs, and protocols, collaborating with stakeholders to ensure
+                  smooth project execution, and overseeing multiple projects concurrently.
+                </p>
+              </div>
+              <div>
+                <h4 className="text-lg font-semibold mb-3 text-gray-800">Strategic Planning</h4>
+                <p className="text-gray-700 mb-6">
+                  Strategic planning ensures logical, coordinated actions to optimize project
+                  delivery and enhance the overall standard construction process by
+                  aligning resources for optimal outcomes.
+                </p>
+              </div>
+              <div className="md:col-span-2">
+                <h4 className="text-lg font-semibold mb-3 text-gray-800">Partnership Network</h4>
+                <p className="text-gray-700">
+                  Our robust network of subcontractors fosters flexibility, change management,
+                  and quality maintenance, enhancing our ability to deliver exceptional results
+                  consistently.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Testimonials Section */}
       <section className="py-20 bg-muted/20">
         <div className="container mx-auto px-4">

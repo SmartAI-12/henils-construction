@@ -173,7 +173,7 @@ const Services = () => {
             <Button size="lg" className="bg-white text-primary hover:bg-gray-100">
               Get a Free Quote
             </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+            <Button size="lg" className="bg-white text-primary hover:bg-gray-100">
               Contact Us
             </Button>
           </div>
