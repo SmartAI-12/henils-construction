@@ -196,11 +196,11 @@ const Footer = () => {
       {/* Bottom Bar */}
       <div className="border-t border-primary-foreground/20">
         <div className="container mx-auto px-4 py-6">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p className="text-primary-foreground/80 text-sm">
+          <div className="flex flex-col items-center space-y-4">
+            <p className="text-primary-foreground/80 text-sm text-center">
               {currentYear} Henil Construction. All rights reserved.
             </p>
-            <div className="flex space-x-6 text-sm">
+            <div className="flex justify-center space-x-6 text-sm">
               <Link 
                 to="/privacy-policy" 
                 className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
