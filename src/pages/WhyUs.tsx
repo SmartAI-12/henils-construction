@@ -6,6 +6,11 @@ import { CheckCircle, Clock, Award, Users, Target, Shield, ArrowRight } from 'lu
 import { Link } from 'react-router-dom';
 
 const WhyUs = () => {
+  const competitiveEdge = {
+    title: "Our Competitive Edge",
+    description: "We combine expertise, innovation, and commitment to deliver exceptional results on every project.",
+  };
+
   const differentiators = [
     {
       icon: Clock,
@@ -124,134 +129,138 @@ const WhyUs = () => {
         </div>
       </section>
 
-      {/* Differentiators Section */}
-      <section className="py-20">
+      {/* Introduction Section */}
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
-              Our Competitive Edge
-            </h2>
-            <p className="text-muted-foreground">
-              We combine expertise, innovation, and commitment to deliver exceptional results on every project.
+          <div className="max-w-4xl mx-auto text-center">
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Shree Enterprises not only aims to meet but exceed clients' expectations, fostering trust and long-term relationships. 
+              Consistently delivering exceptional quality and service establishes our reputation as a reliable and reputable provider 
+              in the construction sector.
             </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {differentiators.map((item, index) => (
-              <Card key={index} className="group hover:shadow-xl transition-shadow duration-300">
-                <CardContent className="p-8">
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-r from-primary to-secondary flex items-center justify-center mb-6">
-                    <item.icon className="w-8 h-8 text-white" />
-                  </div>
-                  
-                  <div className="mb-6">
-                    <div className="text-4xl font-bold text-primary mb-1">{item.stat}</div>
-                    <div className="text-muted-foreground text-sm font-medium">{item.statLabel}</div>
-                  </div>
-
-                  <h3 className="text-xl font-bold text-foreground mb-3">
-                    {item.title}
-                  </h3>
-                  
-                  <p className="text-muted-foreground mb-6">
-                    {item.description}
-                  </p>
-
-                  <ul className="space-y-2">
-                    {item.details.map((detail, idx) => (
-                      <li key={idx} className="flex items-start space-x-2">
-                        <CheckCircle className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
-                        <span className="text-sm text-muted-foreground">{detail}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
-            ))}
           </div>
         </div>
       </section>
 
-      {/* Vision, Mission & Strategy Section */}
+      {/* Key Strategy Section */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">Our Vision & Mission</h2>
-            <p className="text-lg text-gray-600 mb-8">
-              Shree Enterprises not only aims to meet but exceed clients' expectations, fostering
-              trust and long-term relationships. Consistently delivering exceptional quality and
-              service establishes our reputation as a reliable and reputable provider in the
-              construction sector.
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-[#E00000]">
+            <span className="border-b-2 border-[#E00000] pb-2">KEY STRATEGY</span>
+          </h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {/* Strategy Plan */}
+            <div className="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Strategy Plan</h3>
+              <p className="text-gray-700">
+                Strategic planning ensures logical, coordinated actions to optimize project delivery and enhance the overall standard construction process by aligning resources for optimal outcomes.
+              </p>
+            </div>
+
+            {/* Management */}
+            <div className="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Management</h3>
+              <p className="text-gray-700">
+                Construction management evaluates project proposals, estimating timelines, cash flow, resources, and protocols, collaborating with stakeholders to ensure smooth project execution, and overseeing multiple projects concurrently.
+              </p>
+            </div>
+
+            {/* Communication */}
+            <div className="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Communication</h3>
+              <p className="text-gray-700">
+                Our robust network of subcontractors fosters flexibility, change management, and quality maintenance, enhancing our ability to deliver exceptional results consistently.
+              </p>
+            </div>
+
+            {/* Development */}
+            <div className="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Development</h3>
+              <p className="text-gray-700">
+                Shree Enterprises excels in refurbishment and new build projects, particularly in education, healthcare, and commercial sectors, showcasing expertise tailored to industry-specific requirements.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Vision & Mission Section */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {/* Vision */}
+            <div className="bg-white p-8 rounded-xl border-2 border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+              <div className="flex items-center mb-6">
+                <div className="w-14 h-14 rounded-full bg-[#E00000] flex items-center justify-center text-white text-2xl font-bold mr-4">V</div>
+                <h3 className="text-2xl font-bold text-[#E00000]">VISION</h3>
+              </div>
+              <p className="text-gray-800 italic leading-relaxed">
+                "Being the architect of responsive, fast, cost-effective, and creative solutions for clients' benefits, commitment to delivering value in every aspect of our services."
+              </p>
+            </div>
+
+            {/* Mission */}
+            <div className="bg-white p-8 rounded-xl border-2 border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+              <div className="flex items-center mb-6">
+                <div className="w-14 h-14 rounded-full bg-blue-600 flex items-center justify-center text-white text-2xl font-bold mr-4">M</div>
+                <h3 className="text-2xl font-bold text-blue-600">MISSION</h3>
+              </div>
+              <p className="text-gray-800 italic leading-relaxed">
+                "To form long-term relationships of value with our clients and partners, using quality construction and engineering solution and employing the best resource and latest techniques."
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Final Quote Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <p className="text-lg text-[#E00000] font-medium italic leading-relaxed">
+              "Our approach is sensitive, innovative and bespoke, driven by challenging and constructive working environments. We are committed to achieving the optimum solutions across our service delivery, considering logistical aspects to ensure customer satisfaction."
             </p>
           </div>
+        </div>
+      </section>
 
-          <div className="grid md:grid-cols-2 gap-8 mb-16">
-            <div className="bg-white p-8 rounded-lg shadow-md">
-              <div className="flex items-center mb-4">
-                <Target className="w-8 h-8 text-blue-600 mr-3" />
-                <h3 className="text-2xl font-semibold">Our Vision</h3>
-              </div>
-              <p className="text-gray-700 mb-6">
-                To form long-term relationships of value with our clients and
-                partners, using quality construction and engineering solutions
-                and employing the best resources and latest techniques.
-              </p>
-              <p className="text-gray-700">
-                Our approach is sensitive, innovative and bespoke, driven by challenging and constrictive
-                working environments. We are committed to achieving the optimum solutions across our
-                service delivery, considering logistical aspects to ensure customer satisfaction.
-              </p>
-            </div>
-
-            <div className="bg-white p-8 rounded-lg shadow-md">
-              <div className="flex items-center mb-4">
-                <Award className="w-8 h-8 text-blue-600 mr-3" />
-                <h3 className="text-2xl font-semibold">Our Mission</h3>
-              </div>
-              <p className="text-gray-700 mb-6">
-                Being the architect of responsive, fast, cost-effective, and creative
-                solutions for clients' benefits, with a commitment to delivering value
-                in every aspect of our services.
-              </p>
-              <div className="mt-6">
-                <h4 className="text-lg font-semibold mb-3 text-gray-800">Our Expertise</h4>
-                <p className="text-gray-700 mb-4">
-                  Shree Enterprises excels in refurbishment and new build projects, particularly in
-                  education, healthcare, and commercial sectors, showcasing expertise tailored to
-                  industry-specific requirements.
-                </p>
-              </div>
-            </div>
+      {/* Differentiators Section */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center max-w-4xl mx-auto mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Competitive Edge</h2>
+            <p className="text-lg text-gray-700">We combine expertise, innovation, and commitment to deliver exceptional results on every project.</p>
           </div>
-
-          <div className="bg-white p-8 rounded-lg shadow-md max-w-4xl mx-auto">
-            <h3 className="text-2xl font-semibold text-center mb-8">Our Key Strategies</h3>
-            <div className="grid md:grid-cols-2 gap-8">
-              <div>
-                <h4 className="text-lg font-semibold mb-3 text-gray-800">Project Management</h4>
-                <p className="text-gray-700 mb-6">
-                  Our construction management evaluates project proposals, estimating timelines,
-                  cash flow, resource needs, and protocols, collaborating with stakeholders to ensure
-                  smooth project execution, and overseeing multiple projects concurrently.
-                </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+            {differentiators.map((differentiator, index) => (
+              <div key={index} className="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                <div className="flex items-center mb-6">
+                  <differentiator.icon className="h-8 w-8 text-[#E00000] mr-4" />
+                  <h3 className="text-2xl font-bold text-gray-900">{differentiator.title}</h3>
+                </div>
+                <p className="text-lg text-gray-700 leading-relaxed">{differentiator.description}</p>
+                <div className="flex items-center justify-between mt-6">
+                  <div className="flex items-center">
+                    <h4 className="text-2xl font-bold text-gray-900">{differentiator.stat}</h4>
+                    <p className="text-sm text-gray-700 ml-2">{differentiator.statLabel}</p>
+                  </div>
+                  <Button variant="link" className="text-gray-700 hover:text-gray-900" asChild>
+                    <Link to="/about" className="flex items-center gap-2">
+                      Learn More
+                    </Link>
+                  </Button>
+                </div>
+                <ul className="list-none mt-6">
+                  {differentiator.details.map((detail, index) => (
+                    <li key={index} className="flex items-start mb-4">
+                      <CheckCircle className="h-5 w-5 text-[#E00000] mr-4" />
+                      <p className="text-gray-700">{detail}</p>
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <div>
-                <h4 className="text-lg font-semibold mb-3 text-gray-800">Strategic Planning</h4>
-                <p className="text-gray-700 mb-6">
-                  Strategic planning ensures logical, coordinated actions to optimize project
-                  delivery and enhance the overall standard construction process by
-                  aligning resources for optimal outcomes.
-                </p>
-              </div>
-              <div className="md:col-span-2">
-                <h4 className="text-lg font-semibold mb-3 text-gray-800">Partnership Network</h4>
-                <p className="text-gray-700">
-                  Our robust network of subcontractors fosters flexibility, change management,
-                  and quality maintenance, enhancing our ability to deliver exceptional results
-                  consistently.
-                </p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -267,30 +276,18 @@ const WhyUs = () => {
               Don't just take our word for it. Here's what our clients have to say about working with us.
             </p>
           </div>
-
+          
+          {/* Testimonials Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {testimonials.map((testimonial, index) => (
-              <Card key={index} className="luxury-card bg-white">
+              <Card key={index} className="bg-white">
                 <CardContent className="p-8">
-                  <div className="space-y-6">
-                    <div className="relative">
-                      <div className="text-6xl text-primary/20 absolute -top-4 -left-2">"</div>
-                      <p className="text-foreground leading-relaxed text-lg relative z-10 pl-8">
-                        {testimonial.quote}
-                      </p>
-                    </div>
-
-                    <div className="flex items-start space-x-4 pt-6 border-t border-border/20">
-                      <div className="w-12 h-12 rounded-full bg-gradient-to-r from-primary to-secondary flex items-center justify-center">
-                        <span className="text-white font-bold text-lg">
-                          {testimonial.author.charAt(0)}
-                        </span>
-                      </div>
-                      <div>
-                        <div className="font-bold text-foreground">{testimonial.author}</div>
-                        <div className="text-muted-foreground text-sm">{testimonial.position}</div>
-                        <div className="text-primary text-sm font-medium">{testimonial.project}</div>
-                      </div>
+                  <div className="space-y-4">
+                    <p className="text-foreground italic">"{testimonial.quote}"</p>
+                    <div className="pt-4 border-t border-border/20">
+                      <h4 className="font-semibold">{testimonial.author}</h4>
+                      <p className="text-sm text-muted-foreground">{testimonial.position}</p>
+                      <p className="text-sm text-primary">{testimonial.project}</p>
                     </div>
                   </div>
                 </CardContent>
@@ -301,36 +298,24 @@ const WhyUs = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="bg-gradient-to-r from-primary to-secondary rounded-2xl p-12 text-center text-white">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-6">
-              Ready to Start Your Project?
-            </h2>
-            <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-              Let's discuss how we can bring your vision to life with our expertise and commitment to excellence.
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
-              <Button 
-                size="lg" 
-                variant="secondary"
-                className="bg-white text-primary hover:bg-white/90"
-                asChild
-              >
-                <Link to="/contact" className="flex items-center space-x-2">
-                  <span>Get a Free Consultation</span>
-                  <ArrowRight className="w-5 h-5" />
-                </Link>
-              </Button>
-              <Button 
-                size="lg" 
-                variant="secondary"
-                className="bg-white/10 hover:bg-white/20 text-white border-2 border-white/30"
-                asChild
-              >
-                <Link to="/projects">View Our Work</Link>
-              </Button>
-            </div>
+      <section className="py-20 bg-gradient-to-r from-primary to-secondary">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Ready to Start Your Project?</h2>
+          <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+            Let's discuss how we can bring your vision to life with our expertise and commitment to excellence.
+          </p>
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <Button size="lg" className="bg-white text-primary hover:bg-white/90" asChild>
+              <Link to="/contact" className="flex items-center gap-2">
+                Get a Free Consultation
+                <ArrowRight className="h-5 w-5" />
+              </Link>
+            </Button>
+            <Button variant="outline" size="lg" className="bg-transparent text-white border-white/30 hover:bg-white/10" asChild>
+              <Link to="/projects" className="flex items-center gap-2">
+                View Our Projects
+              </Link>
+            </Button>
           </div>
         </div>
       </section>
