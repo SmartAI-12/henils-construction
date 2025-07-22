@@ -1,8 +1,8 @@
 import React from 'react';
-import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Building2, Wrench, ClipboardCheck, Palette } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import './ServicesSection.css';
 
 const ServicesSection = () => {
   const services = [
@@ -11,111 +11,109 @@ const ServicesSection = () => {
       title: 'General Contracting',
       description: 'Full-service construction with expert project management and quality assurance.',
       features: ['Planning', 'Execution', 'Quality', 'Safety'],
-      color: 'from-primary to-primary-light',
+      color: 'bg-gradient-to-br from-blue-600 to-blue-400',
     },
     {
       icon: Palette,
       title: 'Design & Consultancy',
       description: 'Innovative and sustainable building designs tailored to your needs.',
       features: ['Architecture', 'Engineering', 'MEP', 'Sustainability'],
-      color: 'from-secondary to-secondary-light',
+      color: 'bg-gradient-to-br from-emerald-600 to-emerald-400',
     },
     {
       icon: Wrench,
       title: 'Design & Build',
       description: 'Seamless integration of design and construction for efficiency.',
       features: ['Single Contact', 'Fast Track', 'Cost Control', 'Quality'],
-      color: 'from-construction-gold to-construction-steel',
+      color: 'bg-gradient-to-br from-amber-600 to-amber-400',
     },
     {
       icon: ClipboardCheck,
       title: 'Project Management',
       description: 'Comprehensive oversight for on-time, on-budget project delivery.',
       features: ['Scheduling', 'Budgeting', 'Monitoring', 'Coordination'],
-      color: 'from-primary-light to-secondary',
+      color: 'bg-gradient-to-br from-violet-600 to-violet-400',
     },
   ];
 
   return (
-    <section className="py-20 bg-muted/30">
+    <section className="relative py-20 bg-white">
+      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 via-emerald-500 to-amber-500"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-gray-50/50 to-white -z-10"></div>
+      
       <div className="container mx-auto px-4">
-        {/* Section Header */}
-        <div className="text-center mb-16 space-y-6">
-          <div className="inline-flex items-center space-x-2 bg-primary/10 rounded-full px-6 py-2">
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center space-x-2 bg-white shadow-sm rounded-full px-6 py-2 border border-gray-100 mb-4 mx-auto">
             <Building2 className="w-5 h-5 text-primary" />
             <span className="text-primary font-medium">Our Services</span>
           </div>
-          
-          <h2 className="text-4xl lg:text-5xl font-bold text-foreground fade-in-up">
+          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900">
             Comprehensive Construction
-            <span className="block bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+            <span className="block bg-gradient-to-r from-blue-600 to-emerald-600 bg-clip-text text-transparent">
               Solutions
             </span>
           </h2>
-          
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed fade-in-up">
-            Comprehensive construction solutions for all your building needs. <Link to="/services" className="text-primary hover:underline">Learn more →</Link>
-          </p>
         </div>
 
-        {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+        {/* 2x2 Grid Layout */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
           {services.map((service, index) => (
-            <Card 
-              key={index} 
-              className={`luxury-card group hover:shadow-luxury transition-all duration-500 transform hover:-translate-y-2 fade-in-up`}
-              style={{ animationDelay: `${index * 150}ms` }}
+            <div 
+              key={index}
+              className={`service-card service-card-${index + 1} bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-xl transition-all duration-500`}
+              data-aos="fade-up"
+              data-aos-delay={index * 100}
             >
-              <CardContent className="p-8">
-                {/* Icon */}
-                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-r ${service.color} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                  <service.icon className="w-8 h-8 text-white" />
-                </div>
-
-                {/* Content */}
-                <div className="space-y-4">
-                  <h3 className="text-2xl font-bold text-foreground group-hover:text-primary transition-colors">
-                    {service.title}
-                  </h3>
+              <div className="relative">
+                <div className={`h-2 ${service.color}`}></div>
+                <div className="p-6">
+                  <div className="flex items-start justify-between mb-6">
+                    <div>
+                      <div className={`w-14 h-14 rounded-xl ${service.color} flex items-center justify-center text-white mb-4 transform transition-transform duration-500 group-hover:rotate-12`}>
+                        <service.icon className="w-7 h-7" />
+                      </div>
+                      <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                        {service.title}
+                      </h3>
+                    </div>
+                  </div>
                   
-                  <p className="text-muted-foreground leading-relaxed">
-                    {service.description}
-                  </p>
-
-                  {/* Features */}
-                  <div className="grid grid-cols-2 gap-2">
+                  <div className="grid grid-cols-2 gap-4 mb-6">
                     {service.features.map((feature, featureIndex) => (
-                      <div key={featureIndex} className="flex items-center space-x-2 text-sm">
-                        <div className="w-1.5 h-1.5 bg-primary rounded-full" />
-                        <span className="text-muted-foreground">{feature}</span>
+                      <div key={featureIndex} className="flex items-center space-x-2 group">
+                        <div className={`w-2 h-2 rounded-full ${service.color.split(' ')[0]} transition-all duration-300 group-hover:w-3 group-hover:h-3`}></div>
+                        <span className="text-sm font-medium text-gray-600">{feature}</span>
                       </div>
                     ))}
                   </div>
 
-                  {/* Learn More Link */}
-                  <div className="pt-4">
+                  <div className="mt-auto pt-4 border-t border-gray-100">
                     <Link 
                       to="/services" 
-                      className="inline-flex items-center space-x-2 text-primary hover:text-primary-dark transition-colors group"
+                      className="inline-flex items-center text-sm font-medium text-blue-600 hover:text-blue-800 transition-all duration-300 group"
                     >
-                      <span className="font-medium">Learn More</span>
-                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                      <span className="relative">
+                        Learn more
+                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                      </span>
+                      <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform duration-300" />
                     </Link>
                   </div>
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
           ))}
         </div>
 
         {/* CTA */}
-        <div className="text-center fade-in-up" style={{ animationDelay: '800ms' }}>
+        <div className="text-center">
           <Button 
+            variant="outline"
             size="lg" 
-            className="construction-button text-lg px-8 py-6"
+            className="bg-white border-gray-200 hover:bg-gray-50 text-gray-800 hover:text-gray-900 text-lg px-8 py-6 shadow-sm hover:shadow transition-all duration-300"
             asChild
           >
-            <Link to="/services" className="flex items-center space-x-2">
+            <Link to="/services" className="flex items-center justify-center space-x-2">
               <span>Explore All Services</span>
               <ArrowRight className="w-5 h-5" />
             </Link>
