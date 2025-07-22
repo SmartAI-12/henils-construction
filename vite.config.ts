@@ -8,6 +8,15 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
+      '@components': path.resolve(__dirname, './src/components'),
+      '@components/ui': path.resolve(__dirname, './src/components/ui'),
+    },
+  },
+  build: {
+    rollupOptions: {
+      input: {
+        main: path.resolve(__dirname, 'index.html'),
+      },
     },
   },
 })
