@@ -9,29 +9,73 @@ const ServicesSection = () => {
     {
       icon: Building2,
       title: 'General Contracting',
-      description: 'Full-service construction with expert project management and quality assurance.',
-      features: ['Planning', 'Execution', 'Quality', 'Safety'],
+      description: 'Comprehensive construction services leveraging extensive resources and skilled labor to surpass client expectations. We ensure quality and efficiency without compromise.',
+      features: [
+        'Single point of responsibility',
+        'Streamlined communication',
+        'Cost-effective solutions',
+        'Risk management',
+        'Project Planning & Coordination',
+        'Resource & Material Management',
+        'Quality Control & Assurance',
+        'Safety Compliance & Training',
+        'Subcontractor Management',
+        'Timeline & Budget Control'
+      ],
       color: 'bg-gradient-to-br from-blue-600 to-blue-400',
     },
     {
       icon: Palette,
-      title: 'Design & Consultancy',
-      description: 'Innovative and sustainable building designs tailored to your needs.',
-      features: ['Architecture', 'Engineering', 'MEP', 'Sustainability'],
+      title: 'Design & Build',
+      description: 'End-to-end construction solutions combining innovative design with expert construction for seamless project delivery. We transform visions into reality with precision and creativity.',
+      features: [
+        'Integrated design & construction',
+        'Faster project delivery',
+        'Cost certainty',
+        'Innovative solutions',
+        'Concept Development',
+        'Architectural Design',
+        'Engineering Solutions',
+        'Value Engineering',
+        'Construction Management',
+        'Turnkey Delivery'
+      ],
       color: 'bg-gradient-to-br from-emerald-600 to-emerald-400',
     },
     {
       icon: Wrench,
-      title: 'Design & Build',
-      description: 'Seamless integration of design and construction for efficiency.',
-      features: ['Single Contact', 'Fast Track', 'Cost Control', 'Quality'],
+      title: 'Renovation & Remodeling',
+      description: 'Breathing new life into existing spaces with expert renovation and remodeling services. We enhance functionality and aesthetics while maintaining structural integrity.',
+      features: [
+        'Space optimization',
+        'Modern upgrades',
+        'Quality craftsmanship',
+        'Minimal disruption',
+        'Interior Renovations',
+        'Exterior Upgrades',
+        'Kitchen & Bath Remodels',
+        'Structural Modifications',
+        'Finish Work',
+        'Code Compliance'
+      ],
       color: 'bg-gradient-to-br from-amber-600 to-amber-400',
     },
     {
       icon: ClipboardCheck,
       title: 'Project Management',
-      description: 'Comprehensive oversight for on-time, on-budget project delivery.',
-      features: ['Scheduling', 'Budgeting', 'Monitoring', 'Coordination'],
+      description: 'Professional project management services ensuring your construction project stays on time, within budget, and to the highest quality standards.',
+      features: [
+        'Expert oversight',
+        'Cost control',
+        'Schedule management',
+        'Quality assurance',
+        'Project Planning',
+        'Contract Administration',
+        'Risk Assessment',
+        'Stakeholder Coordination',
+        'Progress Monitoring',
+        'Closeout & Handover'
+      ],
       color: 'bg-gradient-to-br from-violet-600 to-violet-400',
     },
   ];
@@ -47,77 +91,102 @@ const ServicesSection = () => {
             <Building2 className="w-5 h-5 text-primary" />
             <span className="text-primary font-medium">Our Services</span>
           </div>
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900">
+          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
             Comprehensive Construction
             <span className="block bg-gradient-to-r from-blue-600 to-emerald-600 bg-clip-text text-transparent">
               Solutions
             </span>
           </h2>
+          <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+            Professional construction services tailored to meet your project's unique requirements
+          </p>
         </div>
 
-        {/* 2x2 Grid Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-          {services.map((service, index) => (
-            <div 
-              key={index}
-              className={`service-card service-card-${index + 1} bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-xl transition-all duration-500`}
-              data-aos="fade-up"
-              data-aos-delay={index * 100}
-            >
-              <div className="relative">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Services</h2>
+            <div className="w-20 h-1 bg-blue-600 mx-auto mb-6"></div>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Comprehensive construction solutions tailored to your needs
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+            {services.map((service, index) => (
+              <div 
+                key={index}
+                className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 h-full flex flex-col"
+                data-aos="fade-up"
+                data-aos-delay={index * 100}
+              >
                 <div className={`h-2 ${service.color}`}></div>
-                <div className="p-6">
-                  <div className="flex items-start justify-between mb-6">
-                    <div>
-                      <div className={`w-14 h-14 rounded-xl ${service.color} flex items-center justify-center text-white mb-4 transform transition-transform duration-500 group-hover:rotate-12`}>
-                        <service.icon className="w-7 h-7" />
-                      </div>
-                      <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                        {service.title}
-                      </h3>
+                <div className="p-6 flex-1 flex flex-col">
+                  <div className="flex items-center mb-4">
+                    <div className={`p-3 rounded-lg ${service.color.split(' ')[0]} bg-opacity-10 mr-4`}>
+                      <service.icon className={`w-6 h-6 ${service.color.split(' ')[0].replace('bg-', 'text-')}`} />
                     </div>
+                    <h3 className="text-xl font-bold text-gray-900">
+                      {service.title}
+                    </h3>
                   </div>
                   
-                  <div className="grid grid-cols-2 gap-4 mb-6">
-                    {service.features.map((feature, featureIndex) => (
-                      <div key={featureIndex} className="flex items-center space-x-2 group">
-                        <div className={`w-2 h-2 rounded-full ${service.color.split(' ')[0]} transition-all duration-300 group-hover:w-3 group-hover:h-3`}></div>
-                        <span className="text-sm font-medium text-gray-600">{feature}</span>
-                      </div>
-                    ))}
+                  <p className="text-gray-600 mb-6 leading-relaxed flex-grow">
+                    {service.description}
+                  </p>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                      <h4 className="text-gray-800 font-medium mb-3 text-sm uppercase tracking-wider">Key Benefits</h4>
+                      <ul className="space-y-2">
+                        {service.features.slice(0, 4).map((feature, featureIndex) => (
+                          <li key={featureIndex} className="flex items-start">
+                            <div className={`w-1.5 h-1.5 rounded-full mt-2 ${service.color.split(' ')[0]}`}></div>
+                            <span className="text-gray-600 text-sm ml-2">{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    
+                    <div>
+                      <h4 className="text-gray-800 font-medium mb-3 text-sm uppercase tracking-wider">What's Included</h4>
+                      <ul className="space-y-2">
+                        {service.features.slice(4).map((feature, featureIndex) => (
+                          <li key={featureIndex + 4} className="flex items-start">
+                            <div className={`w-1.5 h-1.5 rounded-full mt-2 ${service.color.split(' ')[0]}`}></div>
+                            <span className="text-gray-600 text-sm ml-2">{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
 
                   <div className="mt-auto pt-4 border-t border-gray-100">
                     <Link 
                       to="/services" 
-                      className="inline-flex items-center text-sm font-medium text-blue-600 hover:text-blue-800 transition-all duration-300 group"
+                      className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium text-sm"
                     >
-                      <span className="relative">
-                        Learn more
-                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
-                      </span>
-                      <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform duration-300" />
+                      <span>Learn more</span>
+                      <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
                     </Link>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
 
-        {/* CTA */}
-        <div className="text-center">
-          <Button 
-            variant="outline"
-            size="lg" 
-            className="bg-white border-gray-200 hover:bg-gray-50 text-gray-800 hover:text-gray-900 text-lg px-8 py-6 shadow-sm hover:shadow transition-all duration-300"
-            asChild
-          >
-            <Link to="/services" className="flex items-center justify-center space-x-2">
-              <span>Explore All Services</span>
-              <ArrowRight className="w-5 h-5" />
-            </Link>
-          </Button>
+          <div className="text-center">
+            <Button 
+              variant="outline"
+              size="lg" 
+              className="bg-white border-gray-200 hover:bg-gray-50 text-gray-800 hover:text-gray-900 text-lg px-8 py-6 shadow-sm hover:shadow transition-all duration-300"
+              asChild
+            >
+              <Link to="/services" className="flex items-center justify-center space-x-2">
+                <span>Explore All Services</span>
+                <ArrowRight className="w-5 h-5" />
+              </Link>
+            </Button>
+          </div>
         </div>
       </div>
     </section>
