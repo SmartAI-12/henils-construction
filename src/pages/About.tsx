@@ -47,9 +47,6 @@ const About = () => {
                       <p className="text-muted-foreground text-lg leading-relaxed mb-8">
                         Our Team combines technical excellence with superior understanding of client needs and the environment in which our clients operate. We are committed to working partnerships that add value and consistently exceed expectations.
                       </p>
-                      <Button variant="outline" className="border-primary text-primary hover:bg-primary/5">
-                        Meet Our Team <ArrowRight className="ml-2 h-4 w-4" />
-                      </Button>
                     </div>
                   </div>
                   <div className="bg-[url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80')] bg-cover bg-center min-h-[400px] group-hover:scale-105 transition-transform duration-500">
@@ -77,32 +74,6 @@ const About = () => {
                 </footer>
               </blockquote>
             </Card>
-          </div>
-        </section>
-
-        {/* Quick Links */}
-        <section className="py-16 md:py-24 bg-background">
-          <div className="container mx-auto px-4">
-            <div className="max-w-5xl mx-auto">
-              <h3 className="text-2xl md:text-3xl font-bold text-center mb-12">Explore More</h3>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {[
-                  { title: 'Our Projects', description: 'View our portfolio of successful projects', link: '/projects' },
-                  { title: 'Our Services', description: 'Discover our comprehensive services', link: '/services' },
-                  { title: 'Contact Us', description: 'Get in touch with our team', link: '/contact' }
-                ].map((item, index) => (
-                  <Link to={item.link} key={index} className="group">
-                    <Card className="h-full p-6 hover:shadow-md transition-all duration-300 border-muted hover:border-primary/30 group-hover:-translate-y-1">
-                      <h4 className="text-xl font-semibold mb-2 text-foreground">{item.title}</h4>
-                      <p className="text-muted-foreground mb-4">{item.description}</p>
-                      <div className="flex items-center text-primary font-medium">
-                        Learn more <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                      </div>
-                    </Card>
-                  </Link>
-                ))}
-              </div>
-            </div>
           </div>
         </section>
       </div>
