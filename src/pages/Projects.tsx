@@ -44,7 +44,6 @@ const Projects = () => {
       status: 'Work In Progress',
       image: '/lovable-uploads/rajhans-solitaire.png.png',
       description: 'Contemporary residential development with state-of-the-art facilities.',
-      completionDate: '2024',
       category: 'Residential',
     },
     {
@@ -55,9 +54,8 @@ const Projects = () => {
       floors: 'G+22 Floor',
       type: 'Civil Work',
       status: 'Work In Progress',
-      image: '/lovable-uploads/supreme-infra.png.png',
+      image: '/lovable-uploads/surpreme infra.png.png',
       description: 'Large-scale commercial and industrial complex.',
-      completionDate: '2024',
       category: 'Commercial',
     },
   ];
@@ -144,13 +142,6 @@ const Projects = () => {
                         {project.status}
                       </Badge>
                     </div>
-                    <a 
-                      href="tel:+919773391144" 
-                      className="w-full flex items-center justify-center space-x-2 bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-md transition-colors text-sm"
-                    >
-                      <Phone className="w-3.5 h-3.5" />
-                      <span>Call Now</span>
-                    </a>
                   </div>
                 </CardFooter>
               </Card>

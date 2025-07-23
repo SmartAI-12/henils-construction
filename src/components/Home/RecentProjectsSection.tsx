@@ -148,17 +148,6 @@ const RecentProjectsSection = () => {
                       <span>{project.type} • {project.completionDate}</span>
                     </div>
                   </div>
-                  
-                  {/* Call Button */}
-                  <div className="pt-4 mt-4 border-t border-border">
-                    <a 
-                      href="tel:+919773391144" 
-                      className="w-full flex items-center justify-center space-x-2 bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-md transition-colors"
-                    >
-                      <Phone className="w-4 h-4" />
-                      <span>Call Now</span>
-                    </a>
-                  </div>
                 </div>
               </CardContent>
             </Card>
