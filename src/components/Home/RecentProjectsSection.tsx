@@ -88,66 +88,103 @@ const RecentProjectsSection = () => {
           {projects.map((project, index) => (
             <Card 
               key={project.id} 
-              className={`luxury-card group hover:shadow-luxury transition-all duration-500 transform hover:-translate-y-2 overflow-hidden fade-in-up`}
-              style={{ animationDelay: `${index * 150}ms` }}
+              className={`luxury-card group relative overflow-hidden transition-all duration-500 transform hover:-translate-y-2 bg-gradient-to-br from-white to-gray-50 border border-gray-100`}
+              style={{ 
+                animationDelay: `${index * 150}ms`,
+                boxShadow: '0 10px 30px -10px rgba(0, 0, 0, 0.1)'
+              }}
             >
+              {/* Animated Background Elements */}
+              <div className="absolute inset-0 overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+                <div className="absolute -right-10 -top-10 w-40 h-40 bg-primary/5 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
+                <div className="absolute -left-10 -bottom-10 w-40 h-40 bg-secondary/5 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000"></div>
+              </div>
+
               {/* Project Image */}
               <div className="relative h-64 overflow-hidden">
                 <img 
                   src={project.image} 
                   alt={project.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                 
                 {/* Status Badge */}
-                <div className="absolute top-4 left-4">
-                  <Badge 
-                    className={`${
-                      project.status === 'Completed' 
-                        ? 'bg-green-500 hover:bg-green-600' 
-                        : 'bg-orange-500 hover:bg-orange-600'
-                    } text-white`}
-                  >
-                    {project.status}
-                  </Badge>
+                <div className="absolute top-4 left-4 z-10">
+                  <div className="relative">
+                    <div className="absolute -inset-1 bg-white/30 rounded-full blur"></div>
+                    <Badge 
+                      className={`relative z-10 ${
+                        project.status === 'Completed' 
+                          ? 'bg-green-600 hover:bg-green-700' 
+                          : 'bg-amber-600 hover:bg-amber-700'
+                      } text-white border-0`}
+                    >
+                      {project.status}
+                    </Badge>
+                  </div>
                 </div>
 
                 {/* Category Badge */}
-                <div className="absolute top-4 right-4">
-                  <Badge variant="secondary" className="bg-white/20 text-white backdrop-blur-sm">
-                    {project.category}
-                  </Badge>
+                <div className="absolute top-4 right-4 z-10">
+                  <div className="relative">
+                    <div className="absolute -inset-1 bg-white/30 rounded-full blur"></div>
+                    <Badge 
+                      variant="secondary" 
+                      className="relative z-10 bg-white/20 text-white backdrop-blur-sm border-0"
+                    >
+                      {project.category}
+                    </Badge>
+                  </div>
                 </div>
               </div>
 
-              <CardContent className="p-6">
-                <div className="space-y-4">
+              <CardContent className="p-6 relative">
+                <div className="space-y-5">
                   {/* Title and Description */}
                   <div>
-                    <h3 className="text-2xl font-bold text-foreground group-hover:text-primary transition-colors mb-2">
+                    <h3 className="text-2xl font-bold text-gray-900 group-hover:text-primary transition-colors mb-2">
                       {project.title}
                     </h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed">
+                    <p className="text-gray-600 leading-relaxed">
                       {project.description}
                     </p>
                   </div>
 
                   {/* Project Details */}
-                  <div className="space-y-2 text-sm">
-                    <div className="flex items-center space-x-2 text-muted-foreground">
-                      <MapPin className="w-4 h-4 text-primary flex-shrink-0" />
-                      <span className="truncate">{project.location}</span>
+                  <div className="space-y-3 text-sm">
+                    <div className="flex items-start space-x-3 text-gray-700">
+                      <div className="flex-shrink-0 mt-1">
+                        <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center">
+                          <MapPin className="w-3.5 h-3.5 text-primary" />
+                        </div>
+                      </div>
+                      <span className="leading-tight">{project.location}</span>
                     </div>
-                    <div className="flex items-center space-x-2 text-muted-foreground">
-                      <Layers className="w-4 h-4 text-primary flex-shrink-0" />
+                    
+                    <div className="flex items-center space-x-3 text-gray-700">
+                      <div className="flex-shrink-0">
+                        <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center">
+                          <Layers className="w-3.5 h-3.5 text-primary" />
+                        </div>
+                      </div>
                       <span>{project.area} • {project.floors}</span>
                     </div>
-                    <div className="flex items-center space-x-2 text-muted-foreground">
-                      <Calendar className="w-4 h-4 text-primary flex-shrink-0" />
+                    
+                    <div className="flex items-center space-x-3 text-gray-700">
+                      <div className="flex-shrink-0">
+                        <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center">
+                          <Calendar className="w-3.5 h-3.5 text-primary" />
+                        </div>
+                      </div>
                       <span>{project.type} • {project.completionDate}</span>
                     </div>
                   </div>
+                </div>
+
+                {/* Animated border effect */}
+                <div className="absolute inset-0 rounded-lg pointer-events-none overflow-hidden">
+                  <div className="absolute inset-0 border-2 border-transparent group-hover:border-primary/10 rounded-lg transition-all duration-700"></div>
                 </div>
               </CardContent>
             </Card>
