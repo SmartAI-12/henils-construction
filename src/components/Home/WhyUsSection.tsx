@@ -74,14 +74,14 @@ const WhyUsSection = () => {
             <span className="text-primary font-medium">Why Choose Us</span>
           </div>
           
-          <h2 className="text-4xl lg:text-5xl font-bold text-foreground fade-in-up">
+          <h2 className="text-4xl lg:text-5xl font-bold text-foreground">
             Your Trusted Construction
             <span className="block bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
               Partner
             </span>
           </h2>
           
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed fade-in-up">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             Building trust through excellence. <Link to="/about" className="text-primary hover:underline">Our story →</Link>
           </p>
         </div>
@@ -89,100 +89,99 @@ const WhyUsSection = () => {
         {/* Differentiators Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
           {differentiators.map((item, index) => (
-            <Card 
+            <div 
               key={index} 
-              className={`luxury-card group hover:shadow-luxury transition-all duration-500 transform hover:-translate-y-2 fade-in-up`}
-              style={{ animationDelay: `${index * 100}ms` }}
+              className="bg-[#FEEAEA] p-8 rounded-lg text-center"
             >
-              <CardContent className="p-8 text-center">
-                {/* Icon */}
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-r from-primary to-primary-light flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <item.icon className="w-8 h-8 text-white" />
-                </div>
+              {/* Icon */}
+              <div className="w-16 h-16 rounded-2xl bg-red-100 flex items-center justify-center mx-auto mb-6">
+                <item.icon className="w-8 h-8 text-red-600" />
+              </div>
 
-                {/* Stat */}
-                <div className="mb-4">
-                  <div className="text-4xl font-bold text-primary mb-1">{item.stat}</div>
-                  <div className="text-sm text-muted-foreground font-medium">{item.statLabel}</div>
+              {/* Stat */}
+              <div className="mb-4">
+                <div className="text-4xl font-bold text-red-600 mb-1">
+                  {item.stat}
                 </div>
+                <div className="text-sm text-red-800/80 font-medium">
+                  {item.statLabel}
+                </div>
+              </div>
 
-                {/* Content */}
-                <div className="space-y-3">
-                  <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
-                    {item.title}
-                  </h3>
-                  
-                  <p className="text-muted-foreground leading-relaxed text-sm">
-                    {item.description}
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
+              {/* Content */}
+              <div className="space-y-3">
+                <h3 className="text-xl font-bold text-foreground">
+                  {item.title}
+                </h3>
+                
+                <p className="text-foreground/80 leading-relaxed text-sm">
+                  {item.description}
+                </p>
+              </div>
+            </div>
           ))}
         </div>
 
         {/* Testimonials */}
-        <div className="space-y-8 fade-in-up" style={{ animationDelay: '800ms' }}>
+        <div className="space-y-8">
           <h3 className="text-3xl font-bold text-center text-foreground mb-12">
             What Our Partners Say
           </h3>
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {testimonials.map((testimonial, index) => (
-              <Card key={index} className="luxury-card bg-gradient-to-br from-white to-muted/30">
-                <CardContent className="p-8">
-                  <div className="space-y-6">
-                    {/* Quote */}
-                    <div className="relative">
-                      <div className="text-6xl text-primary/20 absolute -top-4 -left-2">"</div>
-                      <p className="text-foreground leading-relaxed text-lg relative z-10 pl-8">
-                        {testimonial.quote}
-                      </p>
-                    </div>
+              <div key={index} className="bg-[#FEEAEA] p-8 rounded-lg">
+                <div className="space-y-6">
+                  {/* Quote */}
+                  <div className="relative">
+                    <div className="text-6xl text-red-200 absolute -top-4 -left-2">"</div>
+                    <p className="text-foreground leading-relaxed text-lg relative z-10 pl-8">
+                      {testimonial.quote}
+                    </p>
+                  </div>
 
-                    {/* Author */}
-                    <div className="flex items-start space-x-4 pt-4 border-t border-border/20">
-                      <div className="w-12 h-12 rounded-full bg-gradient-to-r from-primary to-secondary flex items-center justify-center">
-                        <span className="text-white font-bold text-lg">
-                          {testimonial.author.charAt(0)}
-                        </span>
-                      </div>
-                      <div>
-                        <div className="font-bold text-foreground">{testimonial.author}</div>
-                        <div className="text-muted-foreground text-sm">{testimonial.position}</div>
-                        <div className="text-primary text-sm font-medium">{testimonial.project}</div>
-                      </div>
+                  {/* Author */}
+                  <div className="flex items-start space-x-4 pt-4 border-t border-red-200">
+                    <div className="w-12 h-12 rounded-full bg-red-300 flex items-center justify-center">
+                      <span className="text-white font-bold text-lg">
+                        {testimonial.author.charAt(0)}
+                      </span>
+                    </div>
+                    <div>
+                      <div className="font-bold text-foreground">{testimonial.author}</div>
+                      <div className="text-foreground/70 text-sm">{testimonial.position}</div>
+                      <div className="text-red-600 text-sm font-medium">{testimonial.project}</div>
                     </div>
                   </div>
-                </CardContent>
-              </Card>
+                </div>
+              </div>
             ))}
           </div>
         </div>
 
         {/* Vision & Mission */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-20 fade-in-up" style={{ animationDelay: '1000ms' }}>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-20">
           {/* Vision */}
-          <div className="luxury-card p-8 bg-gradient-to-br from-primary/5 to-primary/10 border-primary/20">
+          <div className="p-8 bg-[#FEEAEA] rounded-lg">
             <h4 className="text-2xl font-bold text-foreground mb-6 flex items-center space-x-3">
-              <Target className="w-8 h-8 text-primary" />
+              <Target className="w-8 h-8 text-red-600" />
               <span>Our Vision</span>
             </h4>
-            <p className="text-muted-foreground leading-relaxed text-lg">
+            <p className="text-foreground/80 leading-relaxed text-lg">
               Being the architect of responsive, fast, cost-effective, and creative solutions for clients' benefits, 
               with commitment to delivering value in every aspect of our services.
             </p>
           </div>
 
           {/* Mission */}
-          <div className="luxury-card p-8 bg-gradient-to-br from-secondary/5 to-secondary/10 border-secondary/20">
+          <div className="p-8 bg-[#FEEAEA] rounded-lg">
             <h4 className="text-2xl font-bold text-foreground mb-6 flex items-center space-x-3">
-              <Shield className="w-8 h-8 text-secondary" />
+              <Target className="w-8 h-8 text-red-600" />
               <span>Our Mission</span>
             </h4>
-            <p className="text-muted-foreground leading-relaxed text-lg">
-              To form long-term relationships of value with our clients and partners, using quality construction 
-              and engineering solutions while employing the best resources and latest techniques.
+            <p className="text-foreground/80 leading-relaxed text-lg">
+              To deliver exceptional construction services through innovative solutions, 
+              quality craftsmanship, and unwavering commitment to client satisfaction.
             </p>
           </div>
         </div>
