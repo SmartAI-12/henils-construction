@@ -83,7 +83,7 @@ const Projects = () => {
       floors: '1 Building - 96 units',
       type: 'Residential Apartments',
       status: 'Work In Progress',
-      image: '/Sakar-Swapana.png',
+      image: '/lovable-uploads/Sakar-swapna.png.png',
       description: 'Premium residential development featuring 2 & 3 BHK apartments with modern amenities.',
       completionDate: 'Ongoing',
       category: 'Residential',
