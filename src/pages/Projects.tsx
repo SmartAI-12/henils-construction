@@ -1,12 +1,28 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { MapPin, Calendar, Layers, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Layout from '@/components/Layout/Layout';
+import sakarImage from '/lovable-uploads/Sakar-Swapana.png';
+
+type ProjectStatus = 'All' | 'Work In Progress' | 'Completed';
 
 const Projects = () => {
+  const [activeFilter, setActiveFilter] = useState<ProjectStatus>('All');
+
+  useEffect(() => {
+    // This will log the full URL where the image should be found
+    console.log('Image URL:', `${window.location.origin}/lovable-uploads/Sakar-Swapana.png`);
+    
+    // Test if the image exists
+    const img = new Image();
+    img.onload = () => console.log('Image loaded successfully');
+    img.onerror = () => console.error('Failed to load image');
+    img.src = '/lovable-uploads/Sakar-Swapana.png';
+  }, []);
+
   const projects = [
     {
       id: 1,
@@ -58,7 +74,34 @@ const Projects = () => {
       description: 'Large-scale commercial and industrial complex.',
       category: 'Commercial',
     },
+    {
+      id: 5,
+      title: 'Sakar Swapna CHSL',
+      location: 'Andheri East, Mumbai',
+      area: '0.47 Acres',
+      size: '511 - 790 sq.ft.',
+      floors: '1 Building - 96 units',
+      type: 'Residential Apartments',
+      status: 'Work In Progress',
+      image: '/Sakar-Swapana.png',
+      description: 'Premium residential development featuring 2 & 3 BHK apartments with modern amenities.',
+      completionDate: 'Ongoing',
+      category: 'Residential',
+      details: {
+        projectArea: '0.47 Acres',
+        sizeRange: '511 - 790 sq.ft.',
+        configuration: '2, 3 BHK Apartments',
+        totalUnits: '96 units',
+        buildings: '1 Building'
+      }
+    },
   ];
+
+  // Filter projects based on active filter
+  const filteredProjects = projects.filter(project => {
+    if (activeFilter === 'All') return true;
+    return project.status === activeFilter;
+  });
 
   return (
     <Layout>
@@ -80,73 +123,120 @@ const Projects = () => {
         </div>
       </section>
       
-      {/* Projects Grid */}
-      <section className="py-20 bg-background">
+      {/* Projects Filter */}
+      <section className="py-8 bg-background">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
-            {projects.map((project) => (
-              <Card 
-                key={project.id} 
-                className="luxury-card group hover:shadow-luxury transition-all duration-500 transform hover:-translate-y-2 overflow-hidden"
+          <div className="flex flex-wrap justify-center gap-4">
+            {['All', 'Work In Progress', 'Completed'].map((filter) => (
+              <button
+                key={filter}
+                onClick={() => setActiveFilter(filter as ProjectStatus)}
+                className={`px-6 py-2 rounded-full text-sm font-medium transition-colors ${
+                  activeFilter === filter
+                    ? 'bg-primary text-white'
+                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                }`}
               >
-                {/* Project Image */}
-                <div className="relative h-64 overflow-hidden">
-                  <img 
-                    src={project.image} 
-                    alt={project.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                    <div className="space-y-2">
-                      <Badge variant="secondary" className="text-sm font-medium">
-                        {project.category}
-                      </Badge>
-                      <p className="text-white text-sm font-light">
-                        {project.description}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                
-                {/* Project Details */}
-                <CardContent className="p-6">
-                  <div className="space-y-4">
-                    <h3 className="text-xl font-bold text-foreground">
-                      {project.title}
-                    </h3>
-                    
-                    <div className="space-y-3 text-sm text-muted-foreground">
-                      <div className="flex items-start space-x-2">
-                        <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0 text-secondary" />
-                        <span>{project.location}</span>
-                      </div>
-                      <div className="flex items-center space-x-2">
-                        <Calendar className="w-4 h-4 text-secondary" />
-                        <span>Completed: {project.completionDate}</span>
-                      </div>
-                      <div className="flex items-center justify-between pt-2 border-t border-border">
-                        <span className="font-medium">{project.area}</span>
-                        <span className="text-foreground font-medium">{project.floors}</span>
-                      </div>
-                    </div>
-                  </div>
-                </CardContent>
-                
-                <CardFooter className="px-6 pb-6 pt-4">
-                  <div className="w-full flex flex-col space-y-3">
-                    <div className="w-full flex justify-center">
-                      <Badge 
-                        variant={project.status === 'Completed' ? 'default' : 'outline'}
-                        className={`text-sm ${project.status === 'Work In Progress' ? 'border-amber-500 text-amber-500' : ''}`}
-                      >
-                        {project.status}
-                      </Badge>
-                    </div>
-                  </div>
-                </CardFooter>
-              </Card>
+                {filter}
+              </button>
             ))}
           </div>
+        </div>
+      </section>
+      
+      {/* Projects Grid */}
+      <section className="py-8 bg-background">
+        <div className="container mx-auto px-4">
+          {/* Test image - temporary */}
+          <div className="mb-8 p-4 border rounded-lg bg-gray-50">
+            <h3 className="text-lg font-medium mb-2">Image Test</h3>
+            <p className="text-sm text-gray-600 mb-2">Testing image at: /lovable-uploads/Sakar-Swapana.png</p>
+            <div className="w-32 h-32 border">
+              <img 
+                src="/lovable-uploads/Sakar-Swapana.png" 
+                alt="Test Image"
+                className="w-full h-full object-cover"
+                onLoad={() => console.log('Test image loaded successfully')}
+                onError={(e) => console.error('Test image failed to load:', e)}
+              />
+            </div>
+          </div>
+          
+          {filteredProjects.length === 0 ? (
+            <div className="text-center py-12">
+              <p className="text-lg text-gray-500">No projects found in this category.</p>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+              {filteredProjects.map((project) => (
+                <Card 
+                  key={project.id} 
+                  className="luxury-card group hover:shadow-luxury transition-all duration-500 transform hover:-translate-y-2 overflow-hidden"
+                >
+                  {/* Project Image */}
+                  <div className="relative h-64 overflow-hidden">
+                    <img 
+                      src={project.image} 
+                      alt={project.title}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      onError={(e) => {
+                        console.error('Error loading image:', project.image);
+                        const target = e.target as HTMLImageElement;
+                        target.src = '/default-project.jpg'; // Fallback image
+                      }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                      <div className="space-y-2">
+                        <Badge variant="secondary" className="text-sm font-medium">
+                          {project.category}
+                        </Badge>
+                        <p className="text-white text-sm font-light">
+                          {project.description}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Project Details */}
+                  <CardContent className="p-6">
+                    <div className="space-y-4">
+                      <h3 className="text-xl font-bold text-foreground">
+                        {project.title}
+                      </h3>
+                      
+                      <div className="space-y-3 text-sm text-muted-foreground">
+                        <div className="flex items-start space-x-2">
+                          <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0 text-secondary" />
+                          <span>{project.location}</span>
+                        </div>
+                        <div className="flex items-center space-x-2">
+                          <Calendar className="w-4 h-4 text-secondary" />
+                          <span>Completed: {project.completionDate}</span>
+                        </div>
+                        <div className="flex items-center justify-between pt-2 border-t border-border">
+                          <span className="font-medium">{project.area}</span>
+                          <span className="text-foreground font-medium">{project.floors}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </CardContent>
+                  
+                  <CardFooter className="px-6 pb-6 pt-4">
+                    <div className="w-full flex flex-col space-y-3">
+                      <div className="w-full flex justify-center">
+                        <Badge 
+                          variant={project.status === 'Completed' ? 'default' : 'outline'}
+                          className={`text-sm ${project.status === 'Work In Progress' ? 'border-amber-500 text-amber-500' : ''}`}
+                        >
+                          {project.status}
+                        </Badge>
+                      </div>
+                    </div>
+                  </CardFooter>
+                </Card>
+              ))}
+            </div>
+          )}
         </div>
       </section>
     </Layout>
