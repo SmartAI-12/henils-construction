@@ -115,34 +115,6 @@ const SectorsSection = () => {
             </Card>
           ))}
         </div>
-
-        {/* Bottom CTA */}
-        <div className="bg-gradient-to-r from-primary to-secondary rounded-2xl p-8 md:p-12 text-center text-white fade-in-up" style={{ animationDelay: '600ms' }}>
-          <h3 className="text-3xl md:text-4xl font-bold mb-4">
-            Ready to Partner with Sector Specialists?
-          </h3>
-          <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-            Let's discuss how our sector-specific expertise can add value to your next development project.
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-            <Button 
-              size="lg" 
-              variant="secondary"
-              className="bg-white text-primary hover:bg-white/90 text-lg px-8 py-6"
-              asChild
-            >
-              <Link to="/sectors">Explore All Sectors</Link>
-            </Button>
-            <Button 
-              size="lg" 
-              variant="outline"
-              className="border-2 border-white text-white hover:bg-white hover:text-primary text-lg px-8 py-6"
-              asChild
-            >
-              <Link to="/contact">Discuss Your Project</Link>
-            </Button>
-          </div>
-        </div>
       </div>
     </section>
   );

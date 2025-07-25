@@ -1,9 +1,10 @@
 import React from 'react';
 import Layout from '@/components/Layout/Layout';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import { ServiceButton } from '@/components/ui/service-button';
 import { Building2, Palette, Wrench, ClipboardCheck, CheckCircle, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import CTASection from '../components/CTASection';
 
 const Services = () => {
   const services = [
@@ -12,18 +13,15 @@ const Services = () => {
       title: 'General Contracting',
       description: 'Comprehensive construction services leveraging extensive resources and skilled labor to surpass client expectations. We ensure quality and efficiency without compromise.',
       features: [
-        'Project Planning & Coordination',
-        'Resource & Material Management',
-        'Quality Control & Assurance',
-        'Safety Compliance & Training',
-        'Subcontractor Management',
-        'Timeline & Budget Control'
+        'End-to-end project management',
+        'Skilled workforce deployment',
+        'Quality assurance protocols',
+        'Timely project delivery'
       ],
       benefits: [
-        'Single point of responsibility',
-        'Streamlined communication',
-        'Cost-effective solutions',
-        'Risk management'
+        'Cost-effective',
+        'Efficient',
+        'Reliable'
       ]
     },
     {
@@ -86,75 +84,53 @@ const Services = () => {
   ];
 
   return (
-    <Layout>
+    <Layout
+      pageTitle="Our Services | Henil Construction"
+      pageDescription="Discover our comprehensive range of construction services tailored to meet your project needs."
+    >
       {/* Hero Section */}
       <section className="py-20 bg-gradient-to-br from-primary to-secondary text-white">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center space-y-6">
-            <h1 className="text-5xl lg:text-6xl font-bold">
-              Our Services
-            </h1>
-            <p className="text-xl text-white/90 leading-relaxed">
-              Comprehensive construction solutions tailored for builders and developers. 
-              From concept to completion, we deliver excellence at every stage.
-            </p>
-          </div>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Services</h1>
+          <p className="text-xl text-white/90 max-w-3xl">
+            Comprehensive construction solutions tailored for builders and developers. From concept to completion, we deliver excellence at every stage.
+          </p>
         </div>
       </section>
 
       {/* Services Grid */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-8">
             {services.map((service, index) => (
-              <Card key={index} className="h-full flex flex-col hover:shadow-lg transition-shadow duration-300">
-                <CardHeader className="pb-4">
-                  <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                    <service.icon className="w-7 h-7 text-primary" />
+              <Card key={index} className="h-full flex flex-col hover:shadow-lg transition-shadow">
+                <CardHeader>
+                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+                    <service.icon className="w-6 h-6 text-primary" />
                   </div>
-                  <CardTitle className="text-2xl font-bold text-foreground">
-                    {service.title}
-                  </CardTitle>
-                  <CardDescription className="text-base text-muted-foreground">
-                    {service.description}
-                  </CardDescription>
+                  <CardTitle>{service.title}</CardTitle>
+                  <CardDescription>{service.description}</CardDescription>
                 </CardHeader>
-                
-                <CardContent className="flex-grow space-y-6">
-                  <div className="space-y-3">
-                    <h4 className="font-semibold text-foreground">Key Features:</h4>
-                    <ul className="space-y-2">
-                      {service.features.map((feature, idx) => (
-                        <li key={idx} className="flex items-start">
-                          <CheckCircle className="w-5 h-5 text-primary mr-2 mt-0.5 flex-shrink-0" />
-                          <span className="text-muted-foreground text-sm">{feature}</span>
+                <CardContent className="flex-grow">
+                  <div className="space-y-2">
+                    <h4 className="font-medium">Key Features:</h4>
+                    <ul className="space-y-1">
+                      {service.features.map((feature, i) => (
+                        <li key={i} className="flex items-start">
+                          <CheckCircle className="w-4 h-4 text-primary mr-2 mt-0.5 flex-shrink-0" />
+                          <span className="text-sm">{feature}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
-                  
-                  <div className="bg-primary/5 p-4 rounded-lg">
-                    <h4 className="font-semibold text-foreground mb-2">Benefits:</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {service.benefits.map((benefit, idx) => (
-                        <span 
-                          key={idx}
-                          className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary"
-                        >
-                          {benefit}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
                 </CardContent>
-                
-                <CardFooter className="pt-2">
-                  <Button variant="outline" className="w-full group" asChild>
+                <CardFooter>
+                  <ServiceButton asChild className="w-full">
                     <Link to="/contact">
                       Get Started
-                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                      <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
-                  </Button>
+                  </ServiceButton>
                 </CardFooter>
               </Card>
             ))}
@@ -162,23 +138,7 @@ const Services = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-primary to-secondary text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6">Ready to Start Your Project?</h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto text-white/90">
-            Our team of experts is ready to bring your vision to life. Contact us today for a consultation.
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Button size="lg" className="bg-white text-primary hover:bg-gray-100">
-              Get a Free Quote
-            </Button>
-            <Button size="lg" className="bg-white text-primary hover:bg-gray-100">
-              Contact Us
-            </Button>
-          </div>
-        </div>
-      </section>
+      <CTASection />
     </Layout>
   );
 };
